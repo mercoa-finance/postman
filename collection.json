@@ -1,0 +1,4647 @@
+{
+  "info": {
+    "name": "Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": null
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.mercoa.com",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Entity",
+      "item": [
+        {
+          "_type": "container",
+          "description": null,
+          "name": "User",
+          "item": [
+            {
+              "_type": "container",
+              "description": null,
+              "name": "Notification Policy",
+              "item": [
+                {
+                  "_type": "endpoint",
+                  "name": "Get All",
+                  "request": {
+                    "description": "Retrieve all notification policies associated with this entity user",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policies",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "notification-policies"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "userId",
+                          "value": "",
+                          "description": null
+                        }
+                      ]
+                    },
+                    "header": [],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "response": []
+                },
+                {
+                  "_type": "endpoint",
+                  "name": "Get",
+                  "request": {
+                    "description": "Retrieve notification policy associated with this entity user",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "notification-policy",
+                        ":notificationType"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "userId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "notificationType",
+                          "value": "",
+                          "description": null
+                        }
+                      ]
+                    },
+                    "header": [],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "response": []
+                },
+                {
+                  "_type": "endpoint",
+                  "name": "Update",
+                  "request": {
+                    "description": "Update notification policy associated with this entity user",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "notification-policy",
+                        ":notificationType"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "userId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "notificationType",
+                          "value": "",
+                          "description": null
+                        }
+                      ]
+                    },
+                    "header": [],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"disabled\": true\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "_type": "container",
+              "description": null,
+              "name": "Notifications",
+              "item": [
+                {
+                  "_type": "endpoint",
+                  "name": "Get All",
+                  "request": {
+                    "description": null,
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notifications?startDate=&endDate=&orderDirection=&limit=&startingAfter=&notificationType=",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "notifications"
+                      ],
+                      "query": [
+                        {
+                          "key": "startDate",
+                          "value": "",
+                          "description": "Start date for notification created on date filter."
+                        },
+                        {
+                          "key": "endDate",
+                          "value": "",
+                          "description": "End date for notification created date filter."
+                        },
+                        {
+                          "key": "orderDirection",
+                          "value": "",
+                          "description": "Direction to order notifications by. Defaults to asc."
+                        },
+                        {
+                          "key": "limit",
+                          "value": "",
+                          "description": "Number of invoices to return. Limit can range between 1 and 100, and the default is 10."
+                        },
+                        {
+                          "key": "startingAfter",
+                          "value": "",
+                          "description": "The ID of the notification to start after. If not provided, the first page of invoices will be returned."
+                        },
+                        {
+                          "key": "notificationType",
+                          "value": "",
+                          "description": "The type of notification to filter by."
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "userId",
+                          "value": "",
+                          "description": null
+                        }
+                      ]
+                    },
+                    "header": [],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "response": []
+                },
+                {
+                  "_type": "endpoint",
+                  "name": "Get",
+                  "request": {
+                    "description": null,
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification/:notificationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "notification",
+                        ":notificationId"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "userId",
+                          "value": "",
+                          "description": null
+                        },
+                        {
+                          "key": "notificationId",
+                          "value": "",
+                          "description": null
+                        }
+                      ]
+                    },
+                    "header": [],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get all entity users",
+              "request": {
+                "description": "Get all entity users",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "users"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Create entity user",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"foreignId\": \"example\",\n    \"email\": \"example\",\n    \"name\": \"example\",\n    \"roles\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get entity user",
+              "request": {
+                "description": "Get entity user",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user/:userId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user",
+                    ":userId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "userId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update entity user",
+              "request": {
+                "description": "Update entity user",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user/:userId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user",
+                    ":userId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "userId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"foreignId\": \"example\",\n    \"email\": \"example\",\n    \"name\": \"example\",\n    \"roles\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete entity user",
+              "request": {
+                "description": "Delete entity user",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user/:userId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user",
+                    ":userId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "userId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get JWT token for entity user",
+              "request": {
+                "description": "Get JWT token for entity user",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user/:userId/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user",
+                    ":userId",
+                    "token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "userId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Generate JWT Token",
+              "request": {
+                "description": "Generate a JWT token for an entity user with the given options. This token can be used to authenticate the entity and entity user in the Mercoa API and iFrame.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/user/:userId/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "user",
+                    ":userId",
+                    "token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    },
+                    {
+                      "key": "userId",
+                      "description": null,
+                      "value": "user_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Generate a JWT token for an entity user with the given options. This token can be used to authenticate the entity and entity user in the Mercoa API and iFrame.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/user/:userId/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "user",
+                        ":userId",
+                        "token"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "userId",
+                          "description": null,
+                          "value": "user_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o\"",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Approval Policy",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Retrieve all invoice approval policies associated with an entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/approval-policies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "approval-policies"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Create",
+              "request": {
+                "description": "Create an invoice approval policy associated with an entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/approval-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "approval-policy"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"trigger\": {\n        \"type\": \"amount\",\n        \"amount\": 0,\n        \"currency\": \"AED\"\n    },\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": "Retrieve an invoice approval policy associated with an entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/approval-policy/:policyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "approval-policy",
+                    ":policyId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "policyId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Update an invoice approval policy associated with an entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/approval-policy/:policyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "approval-policy",
+                    ":policyId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "policyId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"trigger\": {\n        \"type\": \"amount\",\n        \"amount\": 0,\n        \"currency\": \"AED\"\n    },\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete",
+              "request": {
+                "description": "Delete an invoice approval policy associated with Entity. BEWARE: Any approval policy deletion will result in all associated downstream policies also being deleted.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/approval-policy/:policyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "approval-policy",
+                    ":policyId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "policyId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Counterparty",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Find counterparties (Deprecated)",
+              "request": {
+                "description": "Find counterparties. Deprecated. Use findPayees or findPayors instead.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/counterparties?paymentMethods=&counterpartyId=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "counterparties"
+                  ],
+                  "query": [
+                    {
+                      "key": "paymentMethods",
+                      "value": "",
+                      "description": "If true, will include counterparty payment methods as part of the response"
+                    },
+                    {
+                      "key": "counterpartyId",
+                      "value": "",
+                      "description": "Filter by counterparty ids"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Find payee counterparties.",
+              "request": {
+                "description": "Find payee counterparties. This endpoint lets you find vendors linked to the entity.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payees?name=&networkType=&paymentMethods=&counterpartyId=&limit=&startingAfter=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "counterparties",
+                    "payees"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "",
+                      "description": "Filter by counterparty name"
+                    },
+                    {
+                      "key": "networkType",
+                      "value": "",
+                      "description": "Filter by network type. By default, only ENTITY counterparties are returned."
+                    },
+                    {
+                      "key": "paymentMethods",
+                      "value": "",
+                      "description": "If true, will include counterparty payment methods as part of the response"
+                    },
+                    {
+                      "key": "counterpartyId",
+                      "value": "",
+                      "description": "Filter by counterparty ids"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "",
+                      "description": "Number of counterparties to return. Limit can range between 1 and 100, and the default is 10."
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "description": "The ID of the counterparties to start after. If not provided, the first page of counterparties will be returned."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Find payor counterparties",
+              "request": {
+                "description": "Find payor counterparties. This endpoint lets you find customers linked to the entity.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payors?name=&networkType=&paymentMethods=&counterpartyId=&limit=&startingAfter=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "counterparties",
+                    "payors"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "",
+                      "description": "Filter by counterparty name"
+                    },
+                    {
+                      "key": "networkType",
+                      "value": "",
+                      "description": "Filter by network type. By default, only ENTITY counterparties are returned."
+                    },
+                    {
+                      "key": "paymentMethods",
+                      "value": "",
+                      "description": "If true, will include counterparty payment methods as part of the response"
+                    },
+                    {
+                      "key": "counterpartyId",
+                      "value": "",
+                      "description": "Filter by counterparty ids"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "",
+                      "description": "Number of counterparties to return. Limit can range between 1 and 100, and the default is 10."
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "description": "The ID of the counterparties to start after. If not provided, the first page of counterparties will be returned."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Link Payees",
+              "request": {
+                "description": "Create association between Entity and a given list of Payees. If a Payee has previously been archived, unarchive the Payee.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/addPayees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "addPayees"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payees\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Hide Payee",
+              "request": {
+                "description": "Marks Payees as unsearchable by Entity via Counterparty search. Invoices associated with these Payees will still be searchable via Invoice search.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/hidePayees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "hidePayees"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payees\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "(Deprecated) Archive Payees",
+              "request": {
+                "description": "Backwards compatibility for old API clients. Use hidePayees instead.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/archivePayees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "archivePayees"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payees\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Link Payors",
+              "request": {
+                "description": "Create association between Entity and a given list of Payors. If a Payor has previously been archived, unarchive the Payor.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/addPayors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "addPayors"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payors\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Hide Payors",
+              "request": {
+                "description": "Marks Payors as unsearchable by Entity via Counterparty search. Invoices associated with these Payors will still be searchable via Invoice search.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/hidePayors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "hidePayors"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payors\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "(Deprecated) Archive Payors",
+              "request": {
+                "description": "Backwards compatibility for old API clients. Use hidePayors instead.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/archivePayors",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "archivePayors"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"payors\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Invoice",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Get invoices for an entity with the given filters.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&vendorId=&payerId=&approverId=&invoiceId=&status=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "key": "excludePayables",
+                      "value": "",
+                      "description": "Return only invoices that are receivable by the entity."
+                    },
+                    {
+                      "key": "excludeReceivables",
+                      "value": "",
+                      "description": "Return only invoices that are payable by the entity."
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "",
+                      "description": "Start date for invoice created on date filter."
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "",
+                      "description": "End date for invoice created date filter."
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "",
+                      "description": "Field to order invoices by. Defaults to CREATED_AT."
+                    },
+                    {
+                      "key": "orderDirection",
+                      "value": "",
+                      "description": "Direction to order invoices by. Defaults to asc."
+                    },
+                    {
+                      "key": "limit",
+                      "value": "",
+                      "description": "Number of invoices to return. Limit can range between 1 and 100, and the default is 10."
+                    },
+                    {
+                      "key": "startingAfter",
+                      "value": "",
+                      "description": "The ID of the invoice to start after. If not provided, the first page of invoices will be returned."
+                    },
+                    {
+                      "key": "search",
+                      "value": "",
+                      "description": "Filter vendors by name. Partial matches are supported."
+                    },
+                    {
+                      "key": "vendorId",
+                      "value": "",
+                      "description": "Filter invoices by vendor ID."
+                    },
+                    {
+                      "key": "payerId",
+                      "value": "",
+                      "description": "Filter invoices by payer ID."
+                    },
+                    {
+                      "key": "approverId",
+                      "value": "",
+                      "description": "Filter invoices by assigned approver user ID."
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": "Filter invoices by invoice ID."
+                    },
+                    {
+                      "key": "status",
+                      "value": "",
+                      "description": "Invoice status to filter on"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/invoice/:invoiceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "invoice",
+                    ":invoiceId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": "ID of the invoice to retrieve. This can be the full invoice ID (in_11aa2b77-6391-49e4-8c3f-b198009202c1) or the first 8 characters of the ID (11aa2b77)."
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get Metrics",
+              "request": {
+                "description": "Get invoice metrics for an entity with the given filters.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/invoice-metrics?search=&excludePayables=&excludeReceivables=&payerId=&vendorId=&approverId=&invoiceId=&status=&dueDateStart=&dueDateEnd=&createdDateStart=&createdDateEnd=&currency=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "invoice-metrics"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "",
+                      "description": "Filter vendors by name. Partial matches are supported."
+                    },
+                    {
+                      "key": "excludePayables",
+                      "value": "",
+                      "description": "Only return invoices that are not payable by the entity. This will return only invoices that are receivable by the entity."
+                    },
+                    {
+                      "key": "excludeReceivables",
+                      "value": "",
+                      "description": "Only return invoices that are not receivable by the entity. This will return only invoices that are payable by the entity."
+                    },
+                    {
+                      "key": "payerId",
+                      "value": "",
+                      "description": "Filter invoices by payer ID."
+                    },
+                    {
+                      "key": "vendorId",
+                      "value": "",
+                      "description": "Filter invoices by vendor ID."
+                    },
+                    {
+                      "key": "approverId",
+                      "value": "",
+                      "description": "Filter invoices by assigned approver user ID."
+                    },
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": "Filter invoices by invoice ID."
+                    },
+                    {
+                      "key": "status",
+                      "value": "",
+                      "description": "Invoice status to filter on"
+                    },
+                    {
+                      "key": "dueDateStart",
+                      "value": "",
+                      "description": "Start date for invoice dueDate filter."
+                    },
+                    {
+                      "key": "dueDateEnd",
+                      "value": "",
+                      "description": "End date for invoice dueDate filter."
+                    },
+                    {
+                      "key": "createdDateStart",
+                      "value": "",
+                      "description": "Start date for invoice created on date filter."
+                    },
+                    {
+                      "key": "createdDateEnd",
+                      "value": "",
+                      "description": "End date for invoice created date filter."
+                    },
+                    {
+                      "key": "currency",
+                      "value": "",
+                      "description": "Currency to filter on"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Metadata",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Retrieve all metadata options associated with this entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/metadata",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "metadata"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": "Retrieve metadata associated with a specific key",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "metadata",
+                    ":key"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "key",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Update metadata associated with a specific key",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "metadata",
+                    ":key"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    },
+                    {
+                      "key": "key",
+                      "description": null,
+                      "value": "propertyId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n    \"prop_123\",\n    \"prop_456\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update metadata associated with a specific key",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "metadata",
+                        ":key"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "key",
+                          "description": null,
+                          "value": "propertyId"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n    \"prop_123\",\n    \"prop_456\"\n]",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "[\n    \"prop_123\",\n    \"prop_456\"\n]",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update metadata associated with a specific key",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "metadata",
+                        ":key"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "key",
+                          "description": null,
+                          "value": "propertyId"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n    \"{key: 'prop_123', value: 'Beach Rental'}\",\n    \"{key: 'prop_456', value: 'City Rental'}\"\n]",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "[\n    \"{key: 'prop_123', value: 'Beach Rental'}\",\n    \"{key: 'prop_456', value: 'City Rental'}\"\n]",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete all metadata associated with a specific key",
+              "request": {
+                "description": "Delete all metadata associated with a specific key",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "metadata",
+                    ":key"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "key",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Notification Policy",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Retrieve all notification policies associated with this entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/notification-policies",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "notification-policies"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": "Retrieve notification policy associated with this entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/notification-policy/:notificationType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "notification-policy",
+                    ":notificationType"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "notificationType",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Update notification policy associated with this entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/notification-policy/:notificationType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "notification-policy",
+                    ":notificationType"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "notificationType",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"additionalRoles\": [\n        \"example\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Payment Method",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethods?type=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethods"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "",
+                      "description": "Type of payment method to filter"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Create",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Only custom payment methods can be updated.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PUT",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"custom\",\n    \"foreignId\": \"example\",\n    \"accountName\": \"example\",\n    \"accountNumber\": \"example\",\n    \"schemaId\": \"example\",\n    \"data\": {\n        \"example\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Initiate micro deposits",
+              "request": {
+                "description": "Initiate micro deposits for a bank account",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId/micro-deposits",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId",
+                    "micro-deposits"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Verify micro deposits",
+              "request": {
+                "description": "Complete micro deposit verification",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId/micro-deposits",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId",
+                    "micro-deposits"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "PUT",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"amounts\": [\n        0\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Representative",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Get representatives for an entity",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/representatives",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "representatives"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Create",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/representative",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "representative"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": {\n        \"firstName\": \"example\",\n        \"middleName\": \"example\",\n        \"lastName\": \"example\",\n        \"suffix\": \"example\"\n    },\n    \"phone\": {\n        \"countryCode\": \"example\",\n        \"number\": \"example\"\n    },\n    \"email\": \"example\",\n    \"address\": {\n        \"addressLine1\": \"example\",\n        \"addressLine2\": \"example\",\n        \"city\": \"example\",\n        \"stateOrProvince\": \"example\",\n        \"postalCode\": \"example\",\n        \"country\": \"example\"\n    },\n    \"birthDate\": {\n        \"day\": \"example\",\n        \"month\": \"example\",\n        \"year\": \"example\"\n    },\n    \"governmentID\": {\n        \"ssn\": {\n            \"full\": \"example\",\n            \"lastFour\": \"example\"\n        },\n        \"itin\": {\n            \"full\": \"example\",\n            \"lastFour\": \"example\"\n        }\n    },\n    \"responsibilities\": {\n        \"jobTitle\": \"example\",\n        \"isController\": true,\n        \"isOwner\": true,\n        \"ownershipPercentage\": 0\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/representative/:representativeId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "representative",
+                    ":representativeId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "representativeId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/representative/:representativeId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "representative",
+                    ":representativeId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "representativeId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get all entities",
+          "request": {
+            "description": "Get all entities (Deprecated)",
+            "url": {
+              "raw": "{{baseUrl}}/entities?isPayee=&isPayor=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entities"
+              ],
+              "query": [
+                {
+                  "key": "isPayee",
+                  "value": "",
+                  "description": "If true, entities that are marked as payees will be returned.\nIf false or not provided, entities that are marked as payees will not be returned.\n"
+                },
+                {
+                  "key": "isPayor",
+                  "value": "",
+                  "description": "If true or not provided, entities that are marked as payors will be returned.\nIf false, entities that are marked as payors will not be returned.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Search entities",
+          "request": {
+            "description": "Search all entities with the given filters. If no filters are provided, all entities will be returned.",
+            "url": {
+              "raw": "{{baseUrl}}/entity?ownedByOrg=&foreignId=&status=&isPayee=&isPayor=&name=&limit=&startingAfter=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity"
+              ],
+              "query": [
+                {
+                  "key": "ownedByOrg",
+                  "value": "",
+                  "description": "If true, only entities with a direct relationship to the requesting organization will be returned. If false or not provided, all entities will be returned."
+                },
+                {
+                  "key": "foreignId",
+                  "value": "",
+                  "description": "ID used to identify this entity in your system"
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "description": null
+                },
+                {
+                  "key": "isPayee",
+                  "value": "",
+                  "description": "If true, entities that are marked as payees will be returned.\nIf false or not provided, entities that are marked as payees will not be returned.\n"
+                },
+                {
+                  "key": "isPayor",
+                  "value": "",
+                  "description": "If true or not provided, entities that are marked as payors will be returned.\nIf false, entities that are marked as payors will not be returned.\n"
+                },
+                {
+                  "key": "name",
+                  "value": "",
+                  "description": "Filter entities by name. Partial matches are supported."
+                },
+                {
+                  "key": "limit",
+                  "value": "",
+                  "description": "Number of entities to return. Limit can range between 1 and 100, and the default is 10."
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "description": "The ID of the entity to start after. If not provided, the first page of entities will be returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Create entity",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"ownedByOrg\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get entity",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Update entity",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"ownedByOrg\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Delete entity",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Accept Terms of Service",
+          "request": {
+            "description": "This endpoint is used to indicate acceptance of Mercoa's terms of service for an entity. Send a request to this endpoint only after the entity has accepted the Mercoa ToS. Entities must accept Mercoa ToS before they can be send or pay invoices using Mercoa's payment rails.",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/accept-tos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "accept-tos"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Initiate KYB",
+          "request": {
+            "description": "This endpoint is used to initiate KYB for an entity. \nSend a request to this endpoint only after the entity has accepted the Mercoa ToS,\nall representatives have been added, and all required fields have been filled out.\n",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/request-kyb",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "request-kyb"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Process Kyb",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/process-kyb",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "process-kyb"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"reviewerEmail\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get JWT token for entity",
+          "request": {
+            "description": "Get JWT token for entity",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "token"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Generate JWT Token",
+          "request": {
+            "description": "Generate a JWT token for an entity with the given options. This token can be used to authenticate the entity in the Mercoa API and iFrame.",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "token"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "description": null,
+                  "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Generate a JWT token for an entity with the given options. This token can be used to authenticate the entity in the Mercoa API and iFrame.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o\"",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get Plaid token",
+          "request": {
+            "description": "Get Plaid token",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/plaidLinkToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "plaidLinkToken"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Oatfi Preapproval",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/oatfiPreapproval",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "oatfiPreapproval"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Generate Onboarding Link",
+          "request": {
+            "description": "Generate an onboarding link for the entity. The onboarding link will be valid for 24 hours.",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/onboarding?type=&connectedEntityId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "onboarding"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "The type of onboarding link to generate. If not provided, the default is payee. The onboarding options are determined by your organization's onboarding configuration."
+                },
+                {
+                  "key": "connectedEntityId",
+                  "value": "",
+                  "description": "The ID of the entity to connect to. If onboarding a payee, this should be the payor entity ID. If onboarding a payor, this should be the payee entity ID. If no connected entity ID is provided, the onboarding link will be for a standalone entity."
+                }
+              ],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Send Onboarding Email",
+          "request": {
+            "description": "Send an email with a onboarding link to the entity. The email will be sent to the email address associated with the entity. The onboarding link will be valid for 7 days.",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/onboarding?type=&connectedEntityId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "onboarding"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "The type of onboarding link to generate. If not provided, the default is payee. The onboarding options are determined by your organization's onboarding configuration."
+                },
+                {
+                  "key": "connectedEntityId",
+                  "value": "",
+                  "description": "The ID of the entity to connect to. If onboarding a payee, this should be the payor entity ID. If onboarding a payor, this should be the payee entity ID. If no connected entity ID is provided, the onboarding link will be for a standalone entity."
+                }
+              ],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Invoice",
+      "item": [
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Surgery",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get invoice",
+              "request": {
+                "description": "Get invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-surgery/:invoiceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-surgery",
+                    ":invoiceId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update invoice",
+              "request": {
+                "description": "Update invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice-surgery/:invoiceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice-surgery",
+                    ":invoiceId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"action\": \"NONE\",\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            }\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"uploadedImage\": \"example\",\n    \"actorEmail\": \"example\",\n    \"paymentDestinationConfirmed\": true,\n    \"approvalPolicy\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Approval",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Approve",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/approve",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "approve"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"text\": \"example\",\n    \"userId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Reject",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/reject",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "reject"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"text\": \"example\",\n    \"userId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Comment",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Get all comments associated with this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "comments"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Create",
+              "request": {
+                "description": "Add a comment to this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/comment",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "comment"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"text\": \"example\",\n    \"userId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/comment/:commentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "comment",
+                    ":commentId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "commentId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Edit a comment on this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/comment/:commentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "comment",
+                    ":commentId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "commentId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"text\": \"example\",\n    \"userId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete",
+              "request": {
+                "description": "Delete a comment on this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/comment/:commentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "comment",
+                    ":commentId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "commentId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Document",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": "Get documents (scanned/uploaded images) associated with this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/documents",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "documents"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Search invoices",
+          "request": {
+            "description": "Search invoices for all entities in the organization",
+            "url": {
+              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoices"
+              ],
+              "query": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": "Filter invoices by the ID of the entity that created the invoice."
+                },
+                {
+                  "key": "startDate",
+                  "value": "",
+                  "description": "Start date for invoice created on date filter."
+                },
+                {
+                  "key": "endDate",
+                  "value": "",
+                  "description": "End date for invoice created date filter."
+                },
+                {
+                  "key": "orderBy",
+                  "value": "",
+                  "description": "Field to order invoices by. Defaults to CREATED_AT."
+                },
+                {
+                  "key": "orderDirection",
+                  "value": "",
+                  "description": "Direction to order invoices by. Defaults to asc."
+                },
+                {
+                  "key": "limit",
+                  "value": "",
+                  "description": "Number of invoices to return. Limit can range between 1 and 100, and the default is 10."
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "description": "The ID of the invoice to start after. If not provided, the first page of invoices will be returned."
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Filter vendors by name. Partial matches are supported."
+                },
+                {
+                  "key": "payerId",
+                  "value": "",
+                  "description": "Filter invoices by payer ID."
+                },
+                {
+                  "key": "vendorId",
+                  "value": "",
+                  "description": "Filter invoices by vendor ID."
+                },
+                {
+                  "key": "approverId",
+                  "value": "",
+                  "description": "Filter invoices by assigned approver user ID."
+                },
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": "Filter invoices by invoice ID."
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "description": "Invoice status to filter on"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Create",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/invoice",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            }\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"uploadedImage\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Update",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            }\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"uploadedImage\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Delete",
+          "request": {
+            "description": "Only invoices in the DRAFT and NEW status can be deleted.",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get payment link",
+          "request": {
+            "description": "Get temporary link for payer to send payment",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId",
+                "payerLink"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "description": null,
+                  "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Get temporary link for payer to send payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "payerLink"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "description": null,
+                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "description": null,
+              "body": "\"https://mercoa.com/pay/make-payment/?t=123456\"",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Send payment email",
+          "request": {
+            "description": "Trigger email to payer inviting them to make payment",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId/sendPayerEmail?attachInvoice=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId",
+                "sendPayerEmail"
+              ],
+              "query": [
+                {
+                  "key": "attachInvoice",
+                  "value": "",
+                  "description": "Whether to attach the invoice to the email"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get disbursement link",
+          "request": {
+            "description": "Get temporary link for vendor to accept payment",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId",
+                "vendorLink"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "description": null,
+                  "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Get temporary link for vendor to accept payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "vendorLink"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "description": null,
+                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "description": null,
+              "body": "\"https://mercoa.com/vendors/accept-payment/?t=123456\"",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Send disbursement email",
+          "request": {
+            "description": "Trigger email to vendor inviting them into the vendor portal",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId/sendVendorEmail",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId",
+                "sendVendorEmail"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Generate PDF",
+          "request": {
+            "description": "Generate a PDF of the invoice",
+            "url": {
+              "raw": "{{baseUrl}}/invoice/:invoiceId/pdf/generate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoice",
+                ":invoiceId",
+                "pdf",
+                "generate"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "invoiceId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Organization",
+      "item": [
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Notification Configuration",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Retrieve all notification configurations",
+                "url": {
+                  "raw": "{{baseUrl}}/organization/notification-configurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organization",
+                    "notification-configurations"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get",
+              "request": {
+                "description": "Retrieve notification configuration for this notification type",
+                "url": {
+                  "raw": "{{baseUrl}}/organization/notification-configuration/:notificationType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organization",
+                    "notification-configuration",
+                    ":notificationType"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "notificationType",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Update notification configuration for this notification type",
+                "url": {
+                  "raw": "{{baseUrl}}/organization/notification-configuration/:notificationType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organization",
+                    "notification-configuration",
+                    ":notificationType"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "notificationType",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"notificationType\": \"invoice\",\n    \"url\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Reset",
+              "request": {
+                "description": "Reset notification configuration for this notification type",
+                "url": {
+                  "raw": "{{baseUrl}}/organization/notification-configuration/:notificationType",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organization",
+                    "notification-configuration",
+                    ":notificationType"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "notificationType",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get",
+          "request": {
+            "description": "Get current organization information",
+            "url": {
+              "raw": "{{baseUrl}}/organization?paymentMethods=&emailProvider=&colorScheme=&payeeOnboardingOptions=&payorOnboardingOptions=&metadataSchema=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organization"
+              ],
+              "query": [
+                {
+                  "key": "paymentMethods",
+                  "value": "",
+                  "description": "include supported payment methods in response"
+                },
+                {
+                  "key": "emailProvider",
+                  "value": "",
+                  "description": "include email provider info in response"
+                },
+                {
+                  "key": "colorScheme",
+                  "value": "",
+                  "description": "include color scheme info in response"
+                },
+                {
+                  "key": "payeeOnboardingOptions",
+                  "value": "",
+                  "description": "include payee onboarding options in response"
+                },
+                {
+                  "key": "payorOnboardingOptions",
+                  "value": "",
+                  "description": "include payor onboarding options in response"
+                },
+                {
+                  "key": "metadataSchema",
+                  "value": "",
+                  "description": "include metadata schema in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Update",
+          "request": {
+            "description": "Update current organization",
+            "url": {
+              "raw": "{{baseUrl}}/organization",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organization"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"business\": {\n            \"email\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Email Log",
+          "request": {
+            "description": "Get log of all emails sent to this organization. Content format subject to change.",
+            "url": {
+              "raw": "{{baseUrl}}/organization/emailLog?startDate=&endDate=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organization",
+                "emailLog"
+              ],
+              "query": [
+                {
+                  "key": "startDate",
+                  "value": "",
+                  "description": null
+                },
+                {
+                  "key": "endDate",
+                  "value": "",
+                  "description": null
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Bank Lookup",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Find bank",
+          "request": {
+            "description": "Find bank account details",
+            "url": {
+              "raw": "{{baseUrl}}/bankLookup?routingNumber=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bankLookup"
+              ],
+              "query": [
+                {
+                  "key": "routingNumber",
+                  "value": "",
+                  "description": "Routing number to validate"
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Moov",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Moov Transfer Callback",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/internal/webhooks/moov/transfer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "internal",
+                "webhooks",
+                "moov",
+                "transfer"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Account-ID",
+                "description": "The Moov account ID",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Signature",
+                "description": "The Moov signature",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Timestamp",
+                "description": "The Moov timestamp",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Nonce",
+                "description": "The Moov nonce",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Webhook-ID",
+                "description": "The Moov webhook ID",
+                "type": "text",
+                "value": "\"example\""
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": {\n        \"accountID\": \"example\",\n        \"transferID\": \"example\",\n        \"status\": \"example\",\n        \"source\": \"UNKNOWN\",\n        \"destination\": \"UNKNOWN\"\n    },\n    \"eventID\": \"example\",\n    \"type\": \"example\",\n    \"createdOn\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Moov Account Callback",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/internal/webhooks/moov/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "internal",
+                "webhooks",
+                "moov",
+                "account"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Account-ID",
+                "description": "The Moov account ID",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Signature",
+                "description": "The Moov signature",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Timestamp",
+                "description": "The Moov timestamp",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Nonce",
+                "description": "The Moov nonce",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Webhook-ID",
+                "description": "The Moov webhook ID",
+                "type": "text",
+                "value": "\"example\""
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": {\n        \"accountID\": \"example\"\n    },\n    \"eventID\": \"example\",\n    \"type\": \"example\",\n    \"createdOn\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Moov Bank Account Callback",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/internal/webhooks/moov/bankAccount",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "internal",
+                "webhooks",
+                "moov",
+                "bankAccount"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "X-Account-ID",
+                "description": "The Moov account ID",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Signature",
+                "description": "The Moov signature",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Timestamp",
+                "description": "The Moov timestamp",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Nonce",
+                "description": "The Moov nonce",
+                "type": "text",
+                "value": "\"example\""
+              },
+              {
+                "key": "X-Webhook-ID",
+                "description": "The Moov webhook ID",
+                "type": "text",
+                "value": "\"example\""
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": {\n        \"bankAccountID\": \"example\",\n        \"accountID\": \"example\",\n        \"status\": \"new\"\n    },\n    \"eventID\": \"example\",\n    \"type\": \"example\",\n    \"createdOn\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Ocr",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Run OCR",
+          "request": {
+            "description": "Run OCR on an Base64 encoded image or PDF",
+            "url": {
+              "raw": "{{baseUrl}}/ocr?vendorNetwork=&entityId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr"
+              ],
+              "query": [
+                {
+                  "key": "vendorNetwork",
+                  "value": "",
+                  "description": "Limit OCR vendor search to a specific network"
+                },
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": "When using the Entity vendor network, specify the entity to use if. EntityId on an auth token will take precedence over this parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Email Inbox",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/emailOcr?org=&vendorNetwork=&disableVendorCreation=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "emailOcr"
+              ],
+              "query": [
+                {
+                  "key": "org",
+                  "value": "",
+                  "description": null
+                },
+                {
+                  "key": "vendorNetwork",
+                  "value": "",
+                  "description": "Limit OCR vendor search to a specific network"
+                },
+                {
+                  "key": "disableVendorCreation",
+                  "value": "",
+                  "description": null
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "\"UNKNOWN\"",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Payment Method Schema",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Get All",
+          "request": {
+            "description": "Get all custom payment method schemas",
+            "url": {
+              "raw": "{{baseUrl}}/paymentMethod/schema",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentMethod",
+                "schema"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Create",
+          "request": {
+            "description": "Create custom payment method schema",
+            "url": {
+              "raw": "{{baseUrl}}/paymentMethod/schema",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentMethod",
+                "schema"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"example\",\n    \"isSource\": true,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"AED\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"example\",\n            \"displayName\": \"example\",\n            \"type\": \"text\",\n            \"optional\": true,\n            \"useAsAccountName\": true,\n            \"useAsAccountNumber\": true,\n            \"options\": [\n                \"example\"\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Update",
+          "request": {
+            "description": "Update custom payment method schema",
+            "url": {
+              "raw": "{{baseUrl}}/paymentMethod/schema/:schemaId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentMethod",
+                "schema",
+                ":schemaId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "schemaId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"example\",\n    \"isSource\": true,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"AED\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"example\",\n            \"displayName\": \"example\",\n            \"type\": \"text\",\n            \"optional\": true,\n            \"useAsAccountName\": true,\n            \"useAsAccountNumber\": true,\n            \"options\": [\n                \"example\"\n            ]\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get",
+          "request": {
+            "description": "Get custom payment method schema",
+            "url": {
+              "raw": "{{baseUrl}}/paymentMethod/schema/:schemaId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentMethod",
+                "schema",
+                ":schemaId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "schemaId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Delete",
+          "request": {
+            "description": "Delete custom payment method schema. Schema that have been used in an invoice cannot be deleted.",
+            "url": {
+              "raw": "{{baseUrl}}/paymentMethod/schema/:schemaId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentMethod",
+                "schema",
+                ":schemaId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "schemaId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Process Invoice",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Trigger invoice processing",
+          "request": {
+            "description": "Trigger invoice processing",
+            "url": {
+              "raw": "{{baseUrl}}/process-invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "process-invoices"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"invoiceIds\": [\n        \"example\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Transaction",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Get all transactions",
+          "request": {
+            "description": "Get all transactions",
+            "url": {
+              "raw": "{{baseUrl}}/transactions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transactions"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get Transaction",
+          "request": {
+            "description": "Get Transaction",
+            "url": {
+              "raw": "{{baseUrl}}/transaction/:transactionId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transaction",
+                ":transactionId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "transactionId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

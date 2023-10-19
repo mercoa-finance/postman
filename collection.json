@@ -1093,7 +1093,7 @@
               "request": {
                 "description": "Get invoices for an entity with the given filters.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&vendorId=&payerId=&approverId=&invoiceId=&status=",
+                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=&includeFees=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1149,14 +1149,14 @@
                       "description": "Filter vendors by name. Partial matches are supported."
                     },
                     {
-                      "key": "vendorId",
-                      "value": "",
-                      "description": "Filter invoices by vendor ID."
-                    },
-                    {
                       "key": "payerId",
                       "value": "",
                       "description": "Filter invoices by payer ID."
+                    },
+                    {
+                      "key": "vendorId",
+                      "value": "",
+                      "description": "Filter invoices by vendor ID."
                     },
                     {
                       "key": "approverId",
@@ -1171,7 +1171,12 @@
                     {
                       "key": "status",
                       "value": "",
-                      "description": "Invoice status to filter on"
+                      "description": "Invoice status to filter on."
+                    },
+                    {
+                      "key": "includeFees",
+                      "value": "",
+                      "description": "If true, will include fees as part of the response."
                     }
                   ],
                   "variable": [
@@ -1195,7 +1200,7 @@
               "request": {
                 "description": null,
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/invoice/:invoiceId",
+                  "raw": "{{baseUrl}}/entity/:entityId/invoice/:invoiceId?includeFees=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1205,7 +1210,13 @@
                     "invoice",
                     ":invoiceId"
                   ],
-                  "query": [],
+                  "query": [
+                    {
+                      "key": "includeFees",
+                      "value": "",
+                      "description": "If true, will include fees as part of the response."
+                    }
+                  ],
                   "variable": [
                     {
                       "key": "entityId",
@@ -2919,7 +2930,7 @@
           "request": {
             "description": "Search invoices for all entities in the organization",
             "url": {
-              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=",
+              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=&includeFees=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -2991,6 +3002,11 @@
                   "key": "status",
                   "value": "",
                   "description": "Invoice status to filter on"
+                },
+                {
+                  "key": "includeFees",
+                  "value": "",
+                  "description": "If true, will include fees as part of the response."
                 }
               ],
               "variable": []
@@ -3039,7 +3055,7 @@
           "request": {
             "description": null,
             "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId",
+              "raw": "{{baseUrl}}/invoice/:invoiceId?includeFees=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -3047,7 +3063,13 @@
                 "invoice",
                 ":invoiceId"
               ],
-              "query": [],
+              "query": [
+                {
+                  "key": "includeFees",
+                  "value": "",
+                  "description": "If true, will include fees as part of the response."
+                }
+              ],
               "variable": [
                 {
                   "key": "invoiceId",

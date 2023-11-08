@@ -662,7 +662,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"trigger\": {\n        \"type\": \"amount\",\n        \"amount\": 0,\n        \"currency\": \"AED\"\n    },\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
+                  "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 0,\n            \"currency\": \"AED\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -744,7 +744,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"trigger\": {\n        \"type\": \"amount\",\n        \"amount\": 0,\n        \"currency\": \"AED\"\n    },\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
+                  "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 0,\n            \"currency\": \"AED\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 0,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"example\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"example\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1716,7 +1716,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"additionalRoles\": [\n        \"example\"\n    ]\n}",
+                  "raw": "{\n    \"disabled\": true,\n    \"additionalRoles\": [\n        \"example\"\n    ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1799,7 +1799,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -3744,6 +3744,37 @@
             "body": {
               "mode": "raw",
               "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Cloud Mailin Webhook",
+          "request": {
+            "description": null,
+            "url": {
+              "raw": "{{baseUrl}}/cloudMailinWebhook",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cloudMailinWebhook"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"headers\": \"UNKNOWN\",\n    \"envelope\": {\n        \"to\": \"example\",\n        \"recipients\": [\n            \"example\"\n        ],\n        \"from\": \"example\",\n        \"helo_domain\": \"example\",\n        \"remote_ip\": \"example\",\n        \"spf\": \"UNKNOWN\",\n        \"tls\": true,\n        \"tls_cipher\": \"example\",\n        \"md5\": \"example\"\n    },\n    \"plain\": \"example\",\n    \"html\": \"example\",\n    \"reply_plain\": \"example\",\n    \"attachments\": [\n        {\n            \"content\": \"example\",\n            \"url\": \"example\",\n            \"file_name\": \"example\",\n            \"content_type\": \"example\",\n            \"size\": \"UNKNOWN\",\n            \"disposition\": \"UNKNOWN\",\n            \"content_id\": \"UNKNOWN\"\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"

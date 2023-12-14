@@ -1085,6 +1085,117 @@
         {
           "_type": "container",
           "description": null,
+          "name": "External Accounting System",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Create External Entity",
+              "request": {
+                "description": "Create a company/entity in the external accounting system",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "external-accounting-system",
+                    "create"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"type\": \"codat\",\n    \"companyId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Connect External System",
+              "request": {
+                "description": "Get a link to connect an entity to an external accounting system",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/connect",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "external-accounting-system",
+                    "connect"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Sync External System",
+              "request": {
+                "description": "Sync an entity with an external accounting system. Will sync customers/vendors and invoices.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/sync",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "external-accounting-system",
+                    "sync"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
           "name": "Invoice",
           "item": [
             {
@@ -2171,7 +2282,7 @@
           "request": {
             "description": "Search all entities with the given filters. If no filters are provided, all entities will be returned.",
             "url": {
-              "raw": "{{baseUrl}}/entity?paymentMethods=&isCustomer=&foreignId=&status=&isPayee=&isPayor=&name=&limit=&startingAfter=&ownedByOrg=",
+              "raw": "{{baseUrl}}/entity?paymentMethods=&isCustomer=&foreignId=&status=&isPayee=&isPayor=&name=&limit=&startingAfter=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -2223,11 +2334,6 @@
                   "key": "startingAfter",
                   "value": "",
                   "description": "The ID of the entity to start after. If not provided, the first page of entities will be returned."
-                },
-                {
-                  "key": "ownedByOrg",
-                  "value": "",
-                  "description": "[DEPRECATED - use isCustomer] If true, only entities with a direct relationship to the requesting organization will be returned. If false or not provided, all entities will be returned."
                 }
               ],
               "variable": []
@@ -2260,7 +2366,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\",\n    \"ownedByOrg\": true\n}",
+              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2328,7 +2434,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\",\n    \"ownedByOrg\": true\n}",
+              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3059,7 +3165,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            }\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3133,7 +3239,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            }\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3643,7 +3749,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"business\": {\n            \"email\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"codat\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"

@@ -2006,7 +2006,7 @@
               "_type": "endpoint",
               "name": "Delete",
               "request": {
-                "description": null,
+                "description": "Mark a payment method as inactive. This will not remove the payment method from the system, but will prevent it from being used in the future.",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId",
                   "host": [
@@ -2629,6 +2629,37 @@
               "_postman_previewlanguage": "json"
             }
           ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Plaid Link token",
+          "request": {
+            "description": "Get a Plaid link token for an entity. This token can be used to add a bank account to the entity using Plaid Link.",
+            "url": {
+              "raw": "{{baseUrl}}/entity/:entityId/plaidLinkToken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entity",
+                ":entityId",
+                "plaidLinkToken"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": []
         },
         {
           "_type": "endpoint",

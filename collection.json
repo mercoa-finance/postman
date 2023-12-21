@@ -2122,6 +2122,44 @@
                 }
               },
               "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get available balance",
+              "request": {
+                "description": "Get the available balance of a payment method. Only bank accounts added with Plaid are supported.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "paymentMethod",
+                    ":paymentMethodId",
+                    "balance"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "paymentMethodId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
             }
           ]
         },

@@ -2228,7 +2228,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"name\": {\n        \"firstName\": \"example\",\n        \"middleName\": \"example\",\n        \"lastName\": \"example\",\n        \"suffix\": \"example\"\n    },\n    \"phone\": {\n        \"countryCode\": \"example\",\n        \"number\": \"example\"\n    },\n    \"email\": \"example\",\n    \"address\": {\n        \"addressLine1\": \"example\",\n        \"addressLine2\": \"example\",\n        \"city\": \"example\",\n        \"stateOrProvince\": \"example\",\n        \"postalCode\": \"example\",\n        \"country\": \"example\"\n    },\n    \"birthDate\": {\n        \"day\": \"example\",\n        \"month\": \"example\",\n        \"year\": \"example\"\n    },\n    \"governmentID\": {\n        \"ssn\": {\n            \"full\": \"example\",\n            \"lastFour\": \"example\"\n        },\n        \"itin\": {\n            \"full\": \"example\",\n            \"lastFour\": \"example\"\n        }\n    },\n    \"responsibilities\": {\n        \"jobTitle\": \"example\",\n        \"isController\": true,\n        \"isOwner\": true,\n        \"ownershipPercentage\": 0\n    }\n}",
+                  "raw": "{\n    \"name\": {\n        \"firstName\": \"example\",\n        \"middleName\": \"example\",\n        \"lastName\": \"example\",\n        \"suffix\": \"example\"\n    },\n    \"phone\": {\n        \"countryCode\": \"example\",\n        \"number\": \"example\"\n    },\n    \"email\": \"example\",\n    \"address\": {\n        \"addressLine1\": \"example\",\n        \"addressLine2\": \"example\",\n        \"city\": \"example\",\n        \"stateOrProvince\": \"example\",\n        \"postalCode\": \"example\",\n        \"country\": \"example\"\n    },\n    \"birthDate\": {\n        \"day\": \"example\",\n        \"month\": \"example\",\n        \"year\": \"example\"\n    },\n    \"governmentID\": {\n        \"ssn\": \"example\"\n    },\n    \"responsibilities\": {\n        \"jobTitle\": \"example\",\n        \"isController\": true,\n        \"isOwner\": true,\n        \"ownershipPercentage\": 0\n    }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -2351,12 +2351,12 @@
                 {
                   "key": "isPayee",
                   "value": "",
-                  "description": "If true, entities that are marked as payees will be returned.\nIf false or not provided, entities that are marked as payees will not be returned.\n"
+                  "description": "If true, entities that are marked as payees will be returned.\nIf false or not provided, entities that are marked as payees will not be returned."
                 },
                 {
                   "key": "isPayor",
                   "value": "",
-                  "description": "If true or not provided, entities that are marked as payors will be returned.\nIf false, entities that are marked as payors will not be returned.\n"
+                  "description": "If true or not provided, entities that are marked as payors will be returned.\nIf false, entities that are marked as payors will not be returned."
                 },
                 {
                   "key": "name",
@@ -2399,12 +2399,18 @@
               "query": [],
               "variable": []
             },
-            "header": [],
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
+              "raw": "{\n    \"isCustomer\": true,\n    \"isPayor\": true,\n    \"isPayee\": false,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"customer@acme.com\",\n            \"legalBusinessName\": \"Acme Inc.\",\n            \"website\": \"http://www.acme.com\",\n            \"businessType\": \"llc\",\n            \"phone\": {\n                \"countryCode\": \"1\",\n                \"number\": \"4155551234\"\n            },\n            \"address\": {\n                \"addressLine1\": \"123 Main St\",\n                \"city\": \"San Francisco\",\n                \"stateOrProvince\": \"CA\",\n                \"postalCode\": \"94105\",\n                \"country\": \"US\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"12-3456789\"\n                }\n            }\n        }\n    }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2412,7 +2418,48 @@
               }
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": null,
+                "url": {
+                  "raw": "{{baseUrl}}/entity",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"isCustomer\": true,\n    \"isPayor\": true,\n    \"isPayee\": false,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"customer@acme.com\",\n            \"legalBusinessName\": \"Acme Inc.\",\n            \"website\": \"http://www.acme.com\",\n            \"businessType\": \"llc\",\n            \"phone\": {\n                \"countryCode\": \"1\",\n                \"number\": \"4155551234\"\n            },\n            \"address\": {\n                \"addressLine1\": \"123 Main St\",\n                \"city\": \"San Francisco\",\n                \"stateOrProvince\": \"CA\",\n                \"postalCode\": \"94105\",\n                \"country\": \"US\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"12-3456789\"\n                }\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"ent_123\",\n    \"name\": \"Acme Inc.\",\n    \"email\": \"customer@acme.com\",\n    \"acceptedTos\": true,\n    \"status\": \"verified\",\n    \"isCustomer\": true,\n    \"isPayor\": true,\n    \"isPayee\": false,\n    \"accountType\": \"business\",\n    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n    \"createdAt\": \"2024-01-01T00:00:00Z\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"customer@acme.com\",\n            \"legalBusinessName\": \"Acme Inc.\",\n            \"businessType\": \"llc\",\n            \"phone\": {\n                \"countryCode\": \"1\",\n                \"number\": \"4155551234\"\n            },\n            \"address\": {\n                \"addressLine1\": \"123 Main St\",\n                \"city\": \"San Francisco\",\n                \"stateOrProvince\": \"CA\",\n                \"postalCode\": \"94105\",\n                \"country\": \"US\"\n            },\n            \"taxIDProvided\": true,\n            \"ownersProvided\": true\n        }\n    }\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
         },
         {
           "_type": "endpoint",
@@ -2472,7 +2519,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"example\",\n            \"legalBusinessName\": \"example\",\n            \"businessType\": \"soleProprietorship\",\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"doingBusinessAs\": \"example\",\n            \"website\": \"example\",\n            \"description\": \"example\",\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"example\"\n                }\n            },\n            \"formationDate\": \"1994-11-05T13:15:30Z\"\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                },\n                \"itin\": {\n                    \"full\": \"example\",\n                    \"lastFour\": \"example\"\n                }\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
+              "raw": "{\n    \"foreignId\": \"example\",\n    \"emailTo\": \"example\",\n    \"emailToAlias\": [\n        \"example\"\n    ],\n    \"isCustomer\": true,\n    \"accountType\": \"business\",\n    \"profile\": {\n        \"business\": {\n            \"email\": \"customer@acme.com\",\n            \"legalBusinessName\": \"Acme Inc.\",\n            \"website\": \"http://www.acme.com\",\n            \"businessType\": \"llc\",\n            \"phone\": {\n                \"countryCode\": \"1\",\n                \"number\": \"4155551234\"\n            },\n            \"address\": {\n                \"addressLine1\": \"123 Main St\",\n                \"city\": \"San Francisco\",\n                \"stateOrProvince\": \"CA\",\n                \"postalCode\": \"94105\",\n                \"country\": \"US\"\n            },\n            \"taxId\": {\n                \"ein\": {\n                    \"number\": \"12-3456789\"\n                }\n            }\n        },\n        \"individual\": {\n            \"email\": \"example\",\n            \"name\": {\n                \"firstName\": \"example\",\n                \"middleName\": \"example\",\n                \"lastName\": \"example\",\n                \"suffix\": \"example\"\n            },\n            \"phone\": {\n                \"countryCode\": \"example\",\n                \"number\": \"example\"\n            },\n            \"address\": {\n                \"addressLine1\": \"example\",\n                \"addressLine2\": \"example\",\n                \"city\": \"example\",\n                \"stateOrProvince\": \"example\",\n                \"postalCode\": \"example\",\n                \"country\": \"example\"\n            },\n            \"birthDate\": {\n                \"day\": \"example\",\n                \"month\": \"example\",\n                \"year\": \"example\"\n            },\n            \"governmentID\": {\n                \"ssn\": \"example\"\n            }\n        }\n    },\n    \"isPayor\": true,\n    \"isPayee\": true,\n    \"logo\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2547,7 +2594,7 @@
           "_type": "endpoint",
           "name": "Initiate KYB",
           "request": {
-            "description": "This endpoint is used to initiate KYB for an entity. \nSend a request to this endpoint only after the entity has accepted the Mercoa ToS,\nall representatives have been added, and all required fields have been filled out.\n",
+            "description": "This endpoint is used to initiate KYB for an entity.\nSend a request to this endpoint only after the entity has accepted the Mercoa ToS,\nall representatives have been added, and all required fields have been filled out.",
             "url": {
               "raw": "{{baseUrl}}/entity/:entityId/request-kyb",
               "host": [
@@ -3939,37 +3986,6 @@
             "body": {
               "mode": "raw",
               "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": []
-        },
-        {
-          "_type": "endpoint",
-          "name": "Cloud Mailin Webhook",
-          "request": {
-            "description": null,
-            "url": {
-              "raw": "{{baseUrl}}/cloudMailinWebhook",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "cloudMailinWebhook"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"headers\": \"UNKNOWN\",\n    \"envelope\": {\n        \"to\": \"example\",\n        \"recipients\": [\n            \"example\"\n        ],\n        \"from\": \"example\",\n        \"helo_domain\": \"example\",\n        \"remote_ip\": \"example\",\n        \"spf\": \"UNKNOWN\",\n        \"tls\": true,\n        \"tls_cipher\": \"example\",\n        \"md5\": \"example\"\n    },\n    \"plain\": \"example\",\n    \"html\": \"example\",\n    \"reply_plain\": \"example\",\n    \"attachments\": [\n        {\n            \"content\": \"example\",\n            \"url\": \"example\",\n            \"file_name\": \"example\",\n            \"content_type\": \"example\",\n            \"size\": \"UNKNOWN\",\n            \"disposition\": \"UNKNOWN\",\n            \"content_id\": \"UNKNOWN\"\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"

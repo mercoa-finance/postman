@@ -3951,56 +3951,7 @@
     {
       "_type": "container",
       "description": null,
-      "name": "Ocr",
-      "item": [
-        {
-          "_type": "endpoint",
-          "name": "Run OCR",
-          "request": {
-            "description": "Run OCR on an Base64 encoded image or PDF",
-            "url": {
-              "raw": "{{baseUrl}}/ocr?vendorNetwork=&entityId=",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "ocr"
-              ],
-              "query": [
-                {
-                  "key": "vendorNetwork",
-                  "value": "",
-                  "description": "Limit OCR vendor search to a specific network"
-                },
-                {
-                  "key": "entityId",
-                  "value": "",
-                  "description": "When using the Entity vendor network, specify the entity to use if. EntityId on an auth token will take precedence over this parameter."
-                }
-              ],
-              "variable": []
-            },
-            "header": [],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_type": "container",
-      "description": null,
-      "name": "Payment Method Schema",
+      "name": "Custom Payment Method Schema",
       "item": [
         {
           "_type": "endpoint",
@@ -4154,6 +4105,127 @@
             },
             "header": [],
             "method": "DELETE",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Ocr",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Run OCR (Sync)",
+          "request": {
+            "description": "Run OCR on an Base64 encoded image or PDF. This endpoint will block until the OCR is complete.",
+            "url": {
+              "raw": "{{baseUrl}}/ocr?vendorNetwork=&entityId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr"
+              ],
+              "query": [
+                {
+                  "key": "vendorNetwork",
+                  "value": "",
+                  "description": "Limit OCR vendor search to a specific network"
+                },
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": "When using the Entity vendor network, specify the entity to use if. EntityId on an auth token will take precedence over this parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Run OCR (Async)",
+          "request": {
+            "description": "Run OCR on an Base64 encoded image or PDF. This endpoint will return immediately and the OCR will be processed asynchronously.",
+            "url": {
+              "raw": "{{baseUrl}}/ocr-async?vendorNetwork=&entityId=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr-async"
+              ],
+              "query": [
+                {
+                  "key": "vendorNetwork",
+                  "value": "",
+                  "description": "Limit OCR vendor search to a specific network"
+                },
+                {
+                  "key": "entityId",
+                  "value": "",
+                  "description": "When using the Entity vendor network, specify the entity to use if. EntityId on an auth token will take precedence over this parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"mimeType\": \"example\",\n    \"image\": \"example\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get OCR Response (Async)",
+          "request": {
+            "description": "Get the status and results of an asynchronous OCR job.",
+            "url": {
+              "raw": "{{baseUrl}}/ocr-async/:jobId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ocr-async",
+                ":jobId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "jobId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "GET",
             "auth": null,
             "body": null
           },

@@ -454,7 +454,7 @@
               "_type": "endpoint",
               "name": "Delete entity user",
               "request": {
-                "description": "Delete entity user",
+                "description": "Delete entity user. This will also remove the user from all approval policies. If an approval policy will break as a result of this operation, this request will fail.",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/user/:userId",
                   "host": [
@@ -1910,7 +1910,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"checkOptions\": {\n        \"enabled\": true,\n        \"initialCheckNumber\": 0,\n        \"routingNumberOverride\": \"example\",\n        \"accountNumberOverride\": \"example\",\n        \"signatoryName\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -3281,7 +3281,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentSourceOptions\": {\n        \"type\": \"bankAccount\",\n        \"delivery\": \"ACH_STANDARD\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3355,7 +3355,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentSourceOptions\": {\n        \"type\": \"bankAccount\",\n        \"delivery\": \"ACH_STANDARD\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3655,7 +3655,7 @@
           "_type": "endpoint",
           "name": "Get Check PDF",
           "request": {
-            "description": "Generate a printable PDF of the check. This will only work for invoices that have a check as the disbursement method.",
+            "description": "Get a printable PDF of the check. This will only work for SCHEDULED invoices that have a check as the disbursement method. Once the PDF has been generated, it will no longer be possible to mail the check. The invoice will be marked as PAID as soon as the check is generated.",
             "url": {
               "raw": "{{baseUrl}}/invoice/:invoiceId/check/generate",
               "host": [

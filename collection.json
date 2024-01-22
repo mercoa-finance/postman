@@ -1910,7 +1910,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\"\n    },\n    \"checkOptions\": {\n        \"enabled\": true,\n        \"initialCheckNumber\": 0,\n        \"routingNumberOverride\": \"example\",\n        \"accountNumberOverride\": \"example\",\n        \"signatoryName\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\",\n        \"accessToken\": \"example\"\n    },\n    \"checkOptions\": {\n        \"enabled\": true,\n        \"initialCheckNumber\": 0,\n        \"routingNumberOverride\": \"example\",\n        \"accountNumberOverride\": \"example\",\n        \"signatoryName\": \"example\",\n        \"signatureImage\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
                   "options": {
                     "raw": {
                       "language": "json"

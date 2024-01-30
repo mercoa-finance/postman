@@ -800,7 +800,7 @@
           "item": [
             {
               "_type": "endpoint",
-              "name": "Find payee counterparties.",
+              "name": "Find payee counterparties",
               "request": {
                 "description": "Find payee counterparties. This endpoint lets you find vendors linked to the entity.",
                 "url": {
@@ -3468,7 +3468,7 @@
                 "body": null
               },
               "description": null,
-              "body": "\"https://mercoa.com/pay/make-payment/?t=123456\"",
+              "body": "\"https://mercoa.com/pay/make-payment/?token=123456\"",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -3583,7 +3583,7 @@
                 "body": null
               },
               "description": null,
-              "body": "\"https://mercoa.com/vendors/accept-payment/?t=123456\"",
+              "body": "\"https://mercoa.com/vendors/accept-payment/?token=123456\"",
               "_postman_previewlanguage": "json"
             }
           ]

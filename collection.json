@@ -166,7 +166,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"disabled\": true,\n    \"digest\": true\n}",
+                      "raw": "{\n    \"disabled\": true,\n    \"digest\": true,\n    \"immediate\": true\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -2127,7 +2127,7 @@
               "_type": "endpoint",
               "name": "Get available balance",
               "request": {
-                "description": "Get the available balance of a payment method. Only bank accounts added with Plaid are supported.",
+                "description": "Get the available balance of a payment method. Only bank accounts added with Plaid are supported. This endpoint will return a cached value and will refresh the balance when called.",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/paymentMethod/:paymentMethodId/balance",
                   "host": [
@@ -3281,7 +3281,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentSourceOptions\": {\n        \"type\": \"bankAccount\",\n        \"delivery\": \"ACH_STANDARD\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3355,7 +3355,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentSourceOptions\": {\n        \"type\": \"bankAccount\",\n        \"delivery\": \"ACH_STANDARD\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3897,7 +3897,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"codat\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"codat\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3913,7 +3913,7 @@
           "request": {
             "description": "Get log of all emails sent to this organization. Content format subject to change.",
             "url": {
-              "raw": "{{baseUrl}}/organization/emailLog?startDate=&endDate=",
+              "raw": "{{baseUrl}}/organization/emailLog?startDate=&endDate=&limit=&startingAfter=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -3931,6 +3931,16 @@
                   "key": "endDate",
                   "value": "",
                   "description": null
+                },
+                {
+                  "key": "limit",
+                  "value": "",
+                  "description": "Number of logs to return. Limit can range between 1 and 100, and the default is 10."
+                },
+                {
+                  "key": "startingAfter",
+                  "value": "",
+                  "description": "The ID of the log to start after. If not provided, the first page of logs will be returned."
                 }
               ],
               "variable": []
@@ -4139,6 +4149,44 @@
             "method": "DELETE",
             "auth": null,
             "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
+      "name": "Fees",
+      "item": [
+        {
+          "_type": "endpoint",
+          "name": "Calculate fees",
+          "request": {
+            "description": "Calculate the fees associated with an payment given the amount, payment source, and disbursement method. Can be used to calculate fees for a payment before creating an invoice.",
+            "url": {
+              "raw": "{{baseUrl}}/fees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fees"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": []
         }

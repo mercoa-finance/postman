@@ -3135,9 +3135,9 @@
           "item": [
             {
               "_type": "endpoint",
-              "name": "Get",
+              "name": "Get Attachments",
               "request": {
-                "description": "Get documents (scanned/uploaded images) associated with this invoice",
+                "description": "Get attachments (scanned/uploaded PDFs and images) associated with this invoice",
                 "url": {
                   "raw": "{{baseUrl}}/invoice/:invoiceId/documents",
                   "host": [
@@ -3159,6 +3159,345 @@
                 },
                 "header": [],
                 "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Upload Attachments",
+              "request": {
+                "description": "Upload documents (scanned/uploaded PDFs and images) associated with this Invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/document",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "document"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"document\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Delete Attachment",
+              "request": {
+                "description": "Delete an attachment (scanned/uploaded PDFs and images) associated with this invoice",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/document/:documentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "document",
+                    ":documentId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    },
+                    {
+                      "key": "documentId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "DELETE",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get Check PDF",
+              "request": {
+                "description": "Get a PDF of the check for the invoice. If the invoice does not have check as the disbursement method, an error will be returned. If the disbursement option for the check is set to 'MAIL', a void copy of the check will be returned. If the disbursement option for the check is set to 'PRINT', a printable check will be returned. If the invoice is NOT marked as PAID, the check will be a void copy.",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/check/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "check",
+                    "generate"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Payment Links",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get payment link",
+              "request": {
+                "description": "Get temporary link for payer to send payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "payerLink"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "description": null,
+                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get temporary link for payer to send payment",
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice",
+                        ":invoiceId",
+                        "payerLink"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "invoiceId",
+                          "description": null,
+                          "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "\"https://mercoa.com/pay/make-payment/?token=123456\"",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Send payment email",
+              "request": {
+                "description": "Trigger email to payer inviting them to make payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/sendPayerEmail?attachInvoice=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "sendPayerEmail"
+                  ],
+                  "query": [
+                    {
+                      "key": "attachInvoice",
+                      "value": "",
+                      "description": "Whether to attach the invoice to the email"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get disbursement link",
+              "request": {
+                "description": "Get temporary link for vendor to accept payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "vendorLink"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "description": null,
+                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get temporary link for vendor to accept payment",
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice",
+                        ":invoiceId",
+                        "vendorLink"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "invoiceId",
+                          "description": null,
+                          "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "\"https://mercoa.com/vendors/accept-payment/?token=123456\"",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Send disbursement email",
+              "request": {
+                "description": "Trigger email to vendor inviting them into the vendor portal",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/sendVendorEmail",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "sendVendorEmail"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
                 "auth": null,
                 "body": null
               },
@@ -3281,7 +3620,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"creatorEntityId\": \"example\",\n    \"creatorUserId\": \"example\",\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"document\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3355,7 +3694,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
+              "raw": "{\n    \"status\": \"DRAFT\",\n    \"amount\": 0,\n    \"currency\": \"AED\",\n    \"invoiceDate\": \"1994-11-05T13:15:30Z\",\n    \"deductionDate\": \"1994-11-05T13:15:30Z\",\n    \"settlementDate\": \"1994-11-05T13:15:30Z\",\n    \"dueDate\": \"1994-11-05T13:15:30Z\",\n    \"invoiceNumber\": \"example\",\n    \"noteToSelf\": \"example\",\n    \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n    \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n    \"payerId\": \"example\",\n    \"paymentSourceId\": \"example\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"PRINT\"\n    },\n    \"approvers\": [\n        {\n            \"approvalSlotId\": \"example\",\n            \"assignedUserId\": \"example\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"example\",\n            \"amount\": 0,\n            \"description\": \"example\",\n            \"name\": \"example\",\n            \"quantity\": 0,\n            \"unitPrice\": 0,\n            \"serviceStartDate\": \"1994-11-05T13:15:30Z\",\n            \"serviceEndDate\": \"1994-11-05T13:15:30Z\",\n            \"metadata\": {\n                \"example\": \"example\"\n            },\n            \"glAccountId\": \"example\"\n        }\n    ],\n    \"metadata\": {\n        \"example\": \"example\"\n    },\n    \"foreignId\": \"example\",\n    \"document\": \"example\",\n    \"uploadedImage\": \"example\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3390,294 +3729,6 @@
             },
             "header": [],
             "method": "DELETE",
-            "auth": null,
-            "body": null
-          },
-          "response": []
-        },
-        {
-          "_type": "endpoint",
-          "name": "Get payment link",
-          "request": {
-            "description": "Get temporary link for payer to send payment",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "payerLink"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "description": null,
-                  "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                }
-              ]
-            },
-            "header": [
-              {
-                "type": "text",
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null,
-            "body": null
-          },
-          "response": [
-            {
-              "name": "Success",
-              "status": "OK",
-              "code": 200,
-              "originalRequest": {
-                "description": "Get temporary link for payer to send payment",
-                "url": {
-                  "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "invoice",
-                    ":invoiceId",
-                    "payerLink"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "invoiceId",
-                      "description": null,
-                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "type": "text",
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": null,
-                "body": null
-              },
-              "description": null,
-              "body": "\"https://mercoa.com/pay/make-payment/?token=123456\"",
-              "_postman_previewlanguage": "json"
-            }
-          ]
-        },
-        {
-          "_type": "endpoint",
-          "name": "Send payment email",
-          "request": {
-            "description": "Trigger email to payer inviting them to make payment",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/sendPayerEmail?attachInvoice=",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "sendPayerEmail"
-              ],
-              "query": [
-                {
-                  "key": "attachInvoice",
-                  "value": "",
-                  "description": "Whether to attach the invoice to the email"
-                }
-              ],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "value": "",
-                  "description": null
-                }
-              ]
-            },
-            "header": [],
-            "method": "POST",
-            "auth": null,
-            "body": null
-          },
-          "response": []
-        },
-        {
-          "_type": "endpoint",
-          "name": "Get disbursement link",
-          "request": {
-            "description": "Get temporary link for vendor to accept payment",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "vendorLink"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "description": null,
-                  "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                }
-              ]
-            },
-            "header": [
-              {
-                "type": "text",
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null,
-            "body": null
-          },
-          "response": [
-            {
-              "name": "Success",
-              "status": "OK",
-              "code": 200,
-              "originalRequest": {
-                "description": "Get temporary link for vendor to accept payment",
-                "url": {
-                  "raw": "{{baseUrl}}/invoice/:invoiceId/vendorLink",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "invoice",
-                    ":invoiceId",
-                    "vendorLink"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "invoiceId",
-                      "description": null,
-                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "type": "text",
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": null,
-                "body": null
-              },
-              "description": null,
-              "body": "\"https://mercoa.com/vendors/accept-payment/?token=123456\"",
-              "_postman_previewlanguage": "json"
-            }
-          ]
-        },
-        {
-          "_type": "endpoint",
-          "name": "Send disbursement email",
-          "request": {
-            "description": "Trigger email to vendor inviting them into the vendor portal",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/sendVendorEmail",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "sendVendorEmail"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "value": "",
-                  "description": null
-                }
-              ]
-            },
-            "header": [],
-            "method": "POST",
-            "auth": null,
-            "body": null
-          },
-          "response": []
-        },
-        {
-          "_type": "endpoint",
-          "name": "Get Invoice PDF",
-          "request": {
-            "description": "Generate a PDF of the invoice",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/pdf/generate",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "pdf",
-                "generate"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "value": "",
-                  "description": null
-                }
-              ]
-            },
-            "header": [],
-            "method": "GET",
-            "auth": null,
-            "body": null
-          },
-          "response": []
-        },
-        {
-          "_type": "endpoint",
-          "name": "Get Check PDF",
-          "request": {
-            "description": "Get a printable PDF of the check. This will only work for SCHEDULED invoices that have a check as the disbursement method. Once the PDF has been generated, it will no longer be possible to mail the check. The invoice will be marked as PAID as soon as the check is generated.",
-            "url": {
-              "raw": "{{baseUrl}}/invoice/:invoiceId/check/generate",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "invoice",
-                ":invoiceId",
-                "check",
-                "generate"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "invoiceId",
-                  "value": "",
-                  "description": null
-                }
-              ]
-            },
-            "header": [],
-            "method": "GET",
             "auth": null,
             "body": null
           },

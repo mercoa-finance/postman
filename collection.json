@@ -1910,7 +1910,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\",\n        \"accessToken\": \"example\"\n    },\n    \"checkOptions\": {\n        \"enabled\": true,\n        \"initialCheckNumber\": 0,\n        \"routingNumberOverride\": \"example\",\n        \"accountNumberOverride\": \"example\",\n        \"signatoryName\": \"example\",\n        \"signatureImage\": \"example\"\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"accountName\": \"example\",\n    \"bankName\": \"example\",\n    \"routingNumber\": \"example\",\n    \"accountNumber\": \"example\",\n    \"accountType\": \"CHECKING\",\n    \"plaid\": {\n        \"accountId\": \"example\",\n        \"publicToken\": \"example\",\n        \"accessToken\": \"example\"\n    },\n    \"checkOptions\": {\n        \"enabled\": true,\n        \"initialCheckNumber\": 0,\n        \"routingNumberOverride\": \"example\",\n        \"accountNumberOverride\": \"example\",\n        \"signatoryName\": \"example\",\n        \"signatureImage\": \"example\",\n        \"useSignatureImage\": true\n    },\n    \"defaultSource\": true,\n    \"defaultDestination\": true\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -2320,7 +2320,7 @@
           "request": {
             "description": "Search all entities with the given filters. If no filters are provided, all entities will be returned.",
             "url": {
-              "raw": "{{baseUrl}}/entity?paymentMethods=&isCustomer=&foreignId=&status=&isPayee=&isPayor=&name=&limit=&startingAfter=",
+              "raw": "{{baseUrl}}/entity?isCustomer=true&foreignId=MY-DB-ID-12345&paymentMethods=true",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -2329,59 +2329,84 @@
               ],
               "query": [
                 {
-                  "key": "paymentMethods",
-                  "value": "",
-                  "description": "If true, will include entity payment methods as part of the response"
-                },
-                {
                   "key": "isCustomer",
-                  "value": "",
-                  "description": "If true, only entities with a direct relationship to the requesting organization will be returned. If false or not provided, all entities will be returned."
+                  "description": "If true, only entities with a direct relationship to the requesting organization will be returned. If false or not provided, all entities will be returned.",
+                  "value": "true"
                 },
                 {
                   "key": "foreignId",
-                  "value": "",
-                  "description": "ID used to identify this entity in your system"
+                  "description": "ID used to identify this entity in your system",
+                  "value": "MY-DB-ID-12345"
                 },
                 {
-                  "key": "status",
-                  "value": "",
-                  "description": null
-                },
-                {
-                  "key": "isPayee",
-                  "value": "",
-                  "description": "If true, entities that are marked as payees will be returned.\nIf false or not provided, entities that are marked as payees will not be returned."
-                },
-                {
-                  "key": "isPayor",
-                  "value": "",
-                  "description": "If true or not provided, entities that are marked as payors will be returned.\nIf false, entities that are marked as payors will not be returned."
-                },
-                {
-                  "key": "name",
-                  "value": "",
-                  "description": "Filter entities by name. Partial matches are supported."
-                },
-                {
-                  "key": "limit",
-                  "value": "",
-                  "description": "Number of entities to return. Limit can range between 1 and 100, and the default is 10."
-                },
-                {
-                  "key": "startingAfter",
-                  "value": "",
-                  "description": "The ID of the entity to start after. If not provided, the first page of entities will be returned."
+                  "key": "paymentMethods",
+                  "description": "If true, will include entity payment methods as part of the response",
+                  "value": "true"
                 }
               ],
               "variable": []
             },
-            "header": [],
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "method": "GET",
             "auth": null,
             "body": null
           },
-          "response": []
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Search all entities with the given filters. If no filters are provided, all entities will be returned.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity?isCustomer=true&foreignId=MY-DB-ID-12345&paymentMethods=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity"
+                  ],
+                  "query": [
+                    {
+                      "key": "isCustomer",
+                      "description": "If true, only entities with a direct relationship to the requesting organization will be returned. If false or not provided, all entities will be returned.",
+                      "value": "true"
+                    },
+                    {
+                      "key": "foreignId",
+                      "description": "ID used to identify this entity in your system",
+                      "value": "MY-DB-ID-12345"
+                    },
+                    {
+                      "key": "paymentMethods",
+                      "description": "If true, will include entity payment methods as part of the response",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "description": null,
+              "body": "{\n    \"count\": 1,\n    \"hasMore\": false,\n    \"data\": [\n        {\n            \"id\": \"ent_123\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            },\n            \"paymentMethods\": [\n                {\n                    \"id\": \"pm_12345\",\n                    \"type\": \"bankAccount\",\n                    \"accountName\": \"My Checking Account\",\n                    \"bankName\": \"Chase\",\n                    \"routingNumber\": \"12345678\",\n                    \"accountNumber\": \"99988767623\",\n                    \"accountType\": \"CHECKING\",\n                    \"status\": \"VERIFIED\",\n                    \"isDefaultSource\": true,\n                    \"isDefaultDestination\": true,\n                    \"supportedCurrencies\": [\n                        \"USD\"\n                    ],\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ]\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
         },
         {
           "_type": "endpoint",
@@ -3285,121 +3310,6 @@
           "description": null,
           "name": "Payment Links",
           "item": [
-            {
-              "_type": "endpoint",
-              "name": "Get payment link",
-              "request": {
-                "description": "Get temporary link for payer to send payment",
-                "url": {
-                  "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "invoice",
-                    ":invoiceId",
-                    "payerLink"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "key": "invoiceId",
-                      "description": null,
-                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "type": "text",
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "auth": null,
-                "body": null
-              },
-              "response": [
-                {
-                  "name": "Success",
-                  "status": "OK",
-                  "code": 200,
-                  "originalRequest": {
-                    "description": "Get temporary link for payer to send payment",
-                    "url": {
-                      "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
-                      "host": [
-                        "{{baseUrl}}"
-                      ],
-                      "path": [
-                        "invoice",
-                        ":invoiceId",
-                        "payerLink"
-                      ],
-                      "query": [],
-                      "variable": [
-                        {
-                          "key": "invoiceId",
-                          "description": null,
-                          "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
-                        }
-                      ]
-                    },
-                    "header": [
-                      {
-                        "type": "text",
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "method": "GET",
-                    "auth": null,
-                    "body": null
-                  },
-                  "description": null,
-                  "body": "\"https://mercoa.com/pay/make-payment/?token=123456\"",
-                  "_postman_previewlanguage": "json"
-                }
-              ]
-            },
-            {
-              "_type": "endpoint",
-              "name": "Send payment email",
-              "request": {
-                "description": "Trigger email to payer inviting them to make payment",
-                "url": {
-                  "raw": "{{baseUrl}}/invoice/:invoiceId/sendPayerEmail?attachInvoice=",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "invoice",
-                    ":invoiceId",
-                    "sendPayerEmail"
-                  ],
-                  "query": [
-                    {
-                      "key": "attachInvoice",
-                      "value": "",
-                      "description": "Whether to attach the invoice to the email"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "invoiceId",
-                      "value": "",
-                      "description": null
-                    }
-                  ]
-                },
-                "header": [],
-                "method": "POST",
-                "auth": null,
-                "body": null
-              },
-              "response": []
-            },
             {
               "_type": "endpoint",
               "name": "Get disbursement link",

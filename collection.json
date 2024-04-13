@@ -1204,7 +1204,7 @@
               "request": {
                 "description": "Get invoices for an entity with the given filters.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=&includeFees=",
+                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1273,6 +1273,11 @@
                       "key": "approverId",
                       "value": "",
                       "description": "Filter invoices by assigned approver user ID."
+                    },
+                    {
+                      "key": "approverAction",
+                      "value": "",
+                      "description": "Filter invoices by approver action. Needs to be used with approverId. For example, if you want to find all invoices that have been approved by a specific user, you would use approverId and approverAction=APPROVE."
                     },
                     {
                       "key": "invoiceId",
@@ -1352,9 +1357,9 @@
               "_type": "endpoint",
               "name": "Get Metrics",
               "request": {
-                "description": "Get invoice metrics for an entity with the given filters.",
+                "description": "Get invoice metrics for an entity with the given filters. Invoices will be grouped by currency.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/invoice-metrics?search=&excludePayables=&excludeReceivables=&payerId=&vendorId=&approverId=&invoiceId=&status=&dueDateStart=&dueDateEnd=&createdDateStart=&createdDateEnd=&currency=",
+                  "raw": "{{baseUrl}}/entity/:entityId/invoice-metrics?search=&excludePayables=&excludeReceivables=&returnByDate=&payerId=&vendorId=&approverId=&invoiceId=&status=&dueDateStart=&dueDateEnd=&createdDateStart=&createdDateEnd=&currency=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1378,6 +1383,11 @@
                       "key": "excludeReceivables",
                       "value": "",
                       "description": "Only return invoices that are not receivable by the entity. This will return only invoices that are payable by the entity."
+                    },
+                    {
+                      "key": "returnByDate",
+                      "value": "",
+                      "description": "Return invoice metrics grouped by date."
                     },
                     {
                       "key": "payerId",
@@ -2885,6 +2895,45 @@
           "item": [
             {
               "_type": "endpoint",
+              "name": "Add Approver",
+              "request": {
+                "description": "Adds an approver to the invoice. Will select the first available approver slot that is not already filled and assign the approver to it. If no approver slots are available, an error will be returned. An explicit approver slot can be specified by setting the `approverSlot` field.",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/add-approver",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "add-approver"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"approvalSlotId\": \"example\",\n    \"userId\": \"example\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
               "name": "Approve",
               "request": {
                 "description": null,
@@ -3427,7 +3476,7 @@
           "request": {
             "description": "Search invoices for all entities in the organization",
             "url": {
-              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&invoiceId=&status=&includeFees=",
+              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -3489,6 +3538,11 @@
                   "key": "approverId",
                   "value": "",
                   "description": "Filter invoices by assigned approver user ID."
+                },
+                {
+                  "key": "approverAction",
+                  "value": "",
+                  "description": "Filter invoices by approver action. Needs to be used with approverId. For example, if you want to find all invoices that have been approved by a specific user, you would use approverId and approverAction=APPROVE."
                 },
                 {
                   "key": "invoiceId",

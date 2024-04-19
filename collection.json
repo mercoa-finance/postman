@@ -1204,7 +1204,7 @@
               "request": {
                 "description": "Get invoices for an entity with the given filters.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
+                  "raw": "{{baseUrl}}/entity/:entityId/invoices?excludePayables=&excludeReceivables=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&metadata=&search=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1255,9 +1255,14 @@
                       "description": "The ID of the invoice to start after. If not provided, the first page of invoices will be returned."
                     },
                     {
+                      "key": "metadata",
+                      "value": "",
+                      "description": "Filter invoices by metadata. Each filter will be applied as an AND condition. Duplicate keys will be ignored."
+                    },
+                    {
                       "key": "search",
                       "value": "",
-                      "description": "Filter vendors by name. Partial matches are supported."
+                      "description": "Find invoices by vendor name, invoice number, or amount. Partial matches are supported."
                     },
                     {
                       "key": "payerId",
@@ -3476,7 +3481,7 @@
           "request": {
             "description": "Search invoices for all entities in the organization",
             "url": {
-              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
+              "raw": "{{baseUrl}}/invoices?entityId=&startDate=&endDate=&orderBy=&orderDirection=&limit=&startingAfter=&search=&metadata=&payerId=&vendorId=&approverId=&approverAction=&invoiceId=&status=&includeFees=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -3522,7 +3527,12 @@
                 {
                   "key": "search",
                   "value": "",
-                  "description": "Filter vendors by name. Partial matches are supported."
+                  "description": "Find invoices by vendor name, invoice number, or amount. Partial matches are supported."
+                },
+                {
+                  "key": "metadata",
+                  "value": "",
+                  "description": "Filter invoices by metadata. Each filter will be applied as an AND condition. Duplicate keys will be ignored."
                 },
                 {
                   "key": "payerId",

@@ -1377,7 +1377,7 @@
                     {
                       "key": "search",
                       "value": "",
-                      "description": "Filter vendors by name. Partial matches are supported."
+                      "description": "Find invoices by vendor name, invoice number, or amount. Partial matches are supported."
                     },
                     {
                       "key": "excludePayables",

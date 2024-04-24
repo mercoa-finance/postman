@@ -804,7 +804,7 @@
               "request": {
                 "description": "Find payee counterparties. This endpoint lets you find vendors linked to the entity.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payees?name=&networkType=&paymentMethods=&counterpartyId=&limit=&startingAfter=",
+                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payees?name=&networkType=&paymentMethods=&invoiceMetrics=&counterpartyId=&limit=&startingAfter=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -829,6 +829,11 @@
                       "key": "paymentMethods",
                       "value": "",
                       "description": "If true, will include counterparty payment methods as part of the response"
+                    },
+                    {
+                      "key": "invoiceMetrics",
+                      "value": "",
+                      "description": "If true, will include counterparty invoice metrics as part of the response"
                     },
                     {
                       "key": "counterpartyId",
@@ -867,7 +872,7 @@
               "request": {
                 "description": "Find payor counterparties. This endpoint lets you find customers linked to the entity.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payors?name=&networkType=&paymentMethods=&counterpartyId=&limit=&startingAfter=",
+                  "raw": "{{baseUrl}}/entity/:entityId/counterparties/payors?name=&networkType=&paymentMethods=&invoiceMetrics=&counterpartyId=&limit=&startingAfter=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -892,6 +897,11 @@
                       "key": "paymentMethods",
                       "value": "",
                       "description": "If true, will include counterparty payment methods as part of the response"
+                    },
+                    {
+                      "key": "invoiceMetrics",
+                      "value": "",
+                      "description": "If true, will include counterparty invoice metrics as part of the response"
                     },
                     {
                       "key": "counterpartyId",

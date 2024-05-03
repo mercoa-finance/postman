@@ -1099,9 +1099,9 @@
           "item": [
             {
               "_type": "endpoint",
-              "name": "Create External Entity",
+              "name": "Create/Update External Entity",
               "request": {
-                "description": "Create a company/entity in the external accounting system",
+                "description": "Create/Link an entity to an external accounting system like Codat or Rutter",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/create",
                   "host": [
@@ -1141,7 +1141,7 @@
               "_type": "endpoint",
               "name": "Connect External System",
               "request": {
-                "description": "Get a link to connect an entity to an external accounting system",
+                "description": "Get a link to connect an entity to an external accounting system like Quickbooks or Xero",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/connect",
                   "host": [
@@ -1372,7 +1372,7 @@
               "_type": "endpoint",
               "name": "Get Metrics",
               "request": {
-                "description": "Get invoice metrics for an entity with the given filters. Invoices will be grouped by currency.",
+                "description": "Get invoice metrics for an entity with the given filters. Invoices will be grouped by currency. If none of excludePayables, excludeReceivables, payerId, vendorId, or invoiceId status filters are provided, excludeReceivables will be set to true.",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/invoice-metrics?search=&excludePayables=&excludeReceivables=&returnByDate=&payerId=&vendorId=&approverId=&invoiceId=&status=&dueDateStart=&dueDateEnd=&createdDateStart=&createdDateEnd=&currency=",
                   "host": [
@@ -3337,6 +3337,38 @@
             },
             {
               "_type": "endpoint",
+              "name": "Get Invoice PDF",
+              "request": {
+                "description": "Generate a PDF of the invoice. This PDF is generated from the data in the invoice, not from the uploaded documents.",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/pdf/generate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "pdf",
+                    "generate"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
+            {
+              "_type": "endpoint",
               "name": "Get Check PDF",
               "request": {
                 "description": "Get a PDF of the check for the invoice. If the invoice does not have check as the disbursement method, an error will be returned. If the disbursement option for the check is set to 'MAIL', a void copy of the check will be returned. If the disbursement option for the check is set to 'PRINT', a printable check will be returned. If the invoice is NOT marked as PAID, the check will be a void copy.",
@@ -3366,6 +3398,37 @@
                 "body": null
               },
               "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get Source Email",
+              "request": {
+                "description": "Get the email subject and body that was used to create this invoice.",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/source-email",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "source-email"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": []
             }
           ]
         },
@@ -3374,6 +3437,121 @@
           "description": null,
           "name": "Payment Links",
           "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get payment link",
+              "request": {
+                "description": "Get temporary link for payer to send payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "payerLink"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "description": null,
+                      "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get temporary link for payer to send payment",
+                    "url": {
+                      "raw": "{{baseUrl}}/invoice/:invoiceId/payerLink",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "invoice",
+                        ":invoiceId",
+                        "payerLink"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "invoiceId",
+                          "description": null,
+                          "value": "inv_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "\"https://mercoa.com/pay/make-payment/?token=123456\"",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Send payment email",
+              "request": {
+                "description": "Trigger email to payer inviting them to make payment",
+                "url": {
+                  "raw": "{{baseUrl}}/invoice/:invoiceId/sendPayerEmail?attachInvoice=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoice",
+                    ":invoiceId",
+                    "sendPayerEmail"
+                  ],
+                  "query": [
+                    {
+                      "key": "attachInvoice",
+                      "value": "",
+                      "description": "Whether to attach the invoice to the email"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "invoiceId",
+                      "value": "",
+                      "description": null
+                    }
+                  ]
+                },
+                "header": [],
+                "method": "POST",
+                "auth": null,
+                "body": null
+              },
+              "response": []
+            },
             {
               "_type": "endpoint",
               "name": "Get disbursement link",
@@ -3869,7 +4047,7 @@
           "request": {
             "description": "Get current organization information",
             "url": {
-              "raw": "{{baseUrl}}/organization?paymentMethods=&emailProvider=&colorScheme=&payeeOnboardingOptions=&payorOnboardingOptions=&metadataSchema=",
+              "raw": "{{baseUrl}}/organization?paymentMethods=&emailProvider=&externalAccountingSystemProvider=&colorScheme=&payeeOnboardingOptions=&payorOnboardingOptions=&metadataSchema=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -3886,6 +4064,11 @@
                   "key": "emailProvider",
                   "value": "",
                   "description": "include email provider info in response"
+                },
+                {
+                  "key": "externalAccountingSystemProvider",
+                  "value": "",
+                  "description": "include external accounting system provider info in response"
                 },
                 {
                   "key": "colorScheme",

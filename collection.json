@@ -1276,7 +1276,7 @@
               "request": {
                 "description": "Sync an entity with an external accounting system. Will sync customers/vendors and invoices.",
                 "url": {
-                  "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/sync",
+                  "raw": "{{baseUrl}}/entity/:entityId/external-accounting-system/sync?vendors=&bills=&glAccounts=",
                   "host": [
                     "{{baseUrl}}"
                   ],
@@ -1286,7 +1286,23 @@
                     "external-accounting-system",
                     "sync"
                   ],
-                  "query": [],
+                  "query": [
+                    {
+                      "key": "vendors",
+                      "value": "",
+                      "description": "Sync vendors from external accounting system. Default is to pull vendors from external system."
+                    },
+                    {
+                      "key": "bills",
+                      "value": "",
+                      "description": "Sync bills from external accounting system. Default is to not sync bills."
+                    },
+                    {
+                      "key": "glAccounts",
+                      "value": "",
+                      "description": "Sync GL accounts from external accounting system. Default is to pull GL accounts from external system. Pushing GL accounts is not supported."
+                    }
+                  ],
                   "variable": [
                     {
                       "key": "entityId",
@@ -5053,7 +5069,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"validationRules\": {\n                \"type\": \"regex\",\n                \"regex\": \"example\",\n                \"errorMessage\": \"example\"\n            },\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"

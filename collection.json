@@ -304,7 +304,7 @@
                         "body": null
                       },
                       "description": null,
-                      "body": "[\n    {\n        \"disabled\": false,\n        \"digest\": true,\n        \"immediate\": false,\n        \"type\": \"INVOICE_APPROVAL_NEEDED\"\n    },\n    {\n        \"disabled\": false,\n        \"digest\": false,\n        \"immediate\": true,\n        \"type\": \"INVOICE_APPROVED\"\n    }\n]",
+                      "body": "[\n    {\n        \"disabled\": true,\n        \"digest\": false,\n        \"immediate\": true,\n        \"type\": \"INVOICE_APPROVED\"\n    },\n    {\n        \"disabled\": false,\n        \"digest\": true,\n        \"immediate\": false,\n        \"type\": \"INVOICE_APPROVAL_NEEDED\"\n    },\n    {\n        \"disabled\": false,\n        \"digest\": false,\n        \"immediate\": true,\n        \"type\": \"INVOICE_PAID\"\n    }\n]",
                       "_postman_previewlanguage": "json"
                     }
                   ]
@@ -342,7 +342,7 @@
                         {
                           "key": "notificationType",
                           "description": null,
-                          "value": "INVOICE_APPROVAL_NEEDED"
+                          "value": "INVOICE_APPROVED"
                         }
                       ]
                     },
@@ -358,6 +358,59 @@
                     "body": null
                   },
                   "response": [
+                    {
+                      "name": "Success",
+                      "status": "OK",
+                      "code": 200,
+                      "originalRequest": {
+                        "description": "Retrieve notification policy associated with this entity user",
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entityId",
+                            "user",
+                            ":userId",
+                            "notification-policy",
+                            ":notificationType"
+                          ],
+                          "query": [],
+                          "variable": [
+                            {
+                              "key": "entityId",
+                              "description": null,
+                              "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                            },
+                            {
+                              "key": "userId",
+                              "description": null,
+                              "value": "user_e24fc81c-c5ee-47e8-af42-4fe29d895506"
+                            },
+                            {
+                              "key": "notificationType",
+                              "description": null,
+                              "value": "INVOICE_APPROVED"
+                            }
+                          ]
+                        },
+                        "header": [
+                          {
+                            "type": "text",
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "auth": null,
+                        "body": null
+                      },
+                      "description": null,
+                      "body": "{\n    \"disabled\": true,\n    \"digest\": false,\n    \"immediate\": true,\n    \"type\": \"INVOICE_APPROVED\"\n}",
+                      "_postman_previewlanguage": "json"
+                    },
                     {
                       "name": "Success",
                       "status": "OK",
@@ -410,6 +463,59 @@
                       "description": null,
                       "body": "{\n    \"disabled\": false,\n    \"digest\": true,\n    \"immediate\": false,\n    \"type\": \"INVOICE_APPROVAL_NEEDED\"\n}",
                       "_postman_previewlanguage": "json"
+                    },
+                    {
+                      "name": "Success",
+                      "status": "OK",
+                      "code": 200,
+                      "originalRequest": {
+                        "description": "Retrieve notification policy associated with this entity user",
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entityId",
+                            "user",
+                            ":userId",
+                            "notification-policy",
+                            ":notificationType"
+                          ],
+                          "query": [],
+                          "variable": [
+                            {
+                              "key": "entityId",
+                              "description": null,
+                              "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                            },
+                            {
+                              "key": "userId",
+                              "description": null,
+                              "value": "user_e24fc81c-c5ee-47e8-af42-4fe29d895506"
+                            },
+                            {
+                              "key": "notificationType",
+                              "description": null,
+                              "value": "INVOICE_PAID"
+                            }
+                          ]
+                        },
+                        "header": [
+                          {
+                            "type": "text",
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "auth": null,
+                        "body": null
+                      },
+                      "description": null,
+                      "body": "{\n    \"disabled\": false,\n    \"digest\": false,\n    \"immediate\": true,\n    \"type\": \"INVOICE_PAID\"\n}",
+                      "_postman_previewlanguage": "json"
                     }
                   ]
                 },
@@ -446,7 +552,7 @@
                         {
                           "key": "notificationType",
                           "description": null,
-                          "value": "INVOICE_APPROVAL_NEEDED"
+                          "value": "INVOICE_APPROVED"
                         }
                       ]
                     },
@@ -461,7 +567,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"disabled\": false,\n    \"digest\": true,\n    \"immediate\": false\n}",
+                      "raw": "{\n    \"disabled\": true\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -470,6 +576,67 @@
                     }
                   },
                   "response": [
+                    {
+                      "name": "Success",
+                      "status": "OK",
+                      "code": 200,
+                      "originalRequest": {
+                        "description": "Update notification policy associated with this entity user",
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entityId",
+                            "user",
+                            ":userId",
+                            "notification-policy",
+                            ":notificationType"
+                          ],
+                          "query": [],
+                          "variable": [
+                            {
+                              "key": "entityId",
+                              "description": null,
+                              "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                            },
+                            {
+                              "key": "userId",
+                              "description": null,
+                              "value": "user_e24fc81c-c5ee-47e8-af42-4fe29d895506"
+                            },
+                            {
+                              "key": "notificationType",
+                              "description": null,
+                              "value": "INVOICE_APPROVED"
+                            }
+                          ]
+                        },
+                        "header": [
+                          {
+                            "type": "text",
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "POST",
+                        "auth": null,
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"disabled\": true\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "description": null,
+                      "body": "{\n    \"disabled\": true,\n    \"digest\": false,\n    \"immediate\": true,\n    \"type\": \"INVOICE_APPROVED\"\n}",
+                      "_postman_previewlanguage": "json"
+                    },
                     {
                       "name": "Success",
                       "status": "OK",
@@ -519,7 +686,7 @@
                         "auth": null,
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n    \"disabled\": false,\n    \"digest\": true,\n    \"immediate\": false\n}",
+                          "raw": "{\n    \"digest\": true\n}",
                           "options": {
                             "raw": {
                               "language": "json"
@@ -529,6 +696,67 @@
                       },
                       "description": null,
                       "body": "{\n    \"disabled\": false,\n    \"digest\": true,\n    \"immediate\": false,\n    \"type\": \"INVOICE_APPROVAL_NEEDED\"\n}",
+                      "_postman_previewlanguage": "json"
+                    },
+                    {
+                      "name": "Success",
+                      "status": "OK",
+                      "code": 200,
+                      "originalRequest": {
+                        "description": "Update notification policy associated with this entity user",
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/:entityId/user/:userId/notification-policy/:notificationType",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            ":entityId",
+                            "user",
+                            ":userId",
+                            "notification-policy",
+                            ":notificationType"
+                          ],
+                          "query": [],
+                          "variable": [
+                            {
+                              "key": "entityId",
+                              "description": null,
+                              "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                            },
+                            {
+                              "key": "userId",
+                              "description": null,
+                              "value": "user_e24fc81c-c5ee-47e8-af42-4fe29d895506"
+                            },
+                            {
+                              "key": "notificationType",
+                              "description": null,
+                              "value": "INVOICE_PAID"
+                            }
+                          ]
+                        },
+                        "header": [
+                          {
+                            "type": "text",
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "POST",
+                        "auth": null,
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"immediate\": true\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "description": null,
+                      "body": "{\n    \"disabled\": false,\n    \"digest\": false,\n    \"immediate\": true,\n    \"type\": \"INVOICE_PAID\"\n}",
                       "_postman_previewlanguage": "json"
                     }
                   ]
@@ -812,6 +1040,96 @@
                   },
                   "description": null,
                   "body": "[\n    {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    }\n]",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get all entity users",
+              "request": {
+                "description": "Get all entity users",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/users?name=John",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "description": "Filter users by name. Partial matches are supported.",
+                      "value": "John"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get all entity users",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/users?name=John",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "key": "name",
+                          "description": "Filter users by name. Partial matches are supported.",
+                          "value": "John"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PUT",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "{\n    \"count\": 1,\n    \"hasMore\": false,\n    \"data\": [\n        {\n            \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"email\": \"john.doe@acme.com\",\n            \"name\": \"John Doe\",\n            \"roles\": [\n                \"admin\",\n                \"approver\"\n            ],\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"updatedAt\": \"2024-01-01T00:00:00Z\"\n        }\n    ]\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -1331,7 +1649,7 @@
                     "body": null
                   },
                   "description": null,
-                  "body": "[\n    {\n        \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"trigger\": [],\n        \"rule\": {\n            \"type\": \"approver\",\n            \"numApprovers\": 1,\n            \"identifierList\": {\n                \"type\": \"rolesList\",\n                \"value\": [\n                    \"admin\"\n                ]\n            }\n        },\n        \"upstreamPolicyId\": \"root\"\n    }\n]",
+                  "body": "[\n    {\n        \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"trigger\": [\n            {\n                \"type\": \"amount\",\n                \"amount\": 100,\n                \"currency\": \"USD\"\n            }\n        ],\n        \"rule\": {\n            \"type\": \"approver\",\n            \"numApprovers\": 2,\n            \"identifierList\": {\n                \"type\": \"rolesList\",\n                \"value\": [\n                    \"Admin\",\n                    \"Controller\"\n                ]\n            }\n        },\n        \"upstreamPolicyId\": \"root\"\n    }\n]",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -1371,7 +1689,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1416,7 +1734,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                      "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -1425,7 +1743,55 @@
                     }
                   },
                   "description": null,
-                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Create an invoice approval policy associated with an entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/approval-policy",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "approval-policy"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"userList\",\n            \"value\": [\n                \"usr_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"usr_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"id\": \"apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"userList\",\n            \"value\": [\n                \"usr_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"usr_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -1515,7 +1881,53 @@
                     "body": null
                   },
                   "description": null,
-                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Retrieve an invoice approval policy associated with an entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/approval-policy/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "approval-policy",
+                        ":policyId"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        },
+                        {
+                          "key": "policyId",
+                          "description": null,
+                          "value": "apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "{\n    \"id\": \"apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"userList\",\n            \"value\": [\n                \"usr_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"usr_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -1561,7 +1973,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1612,7 +2024,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                      "raw": "{\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -1621,7 +2033,61 @@
                     }
                   },
                   "description": null,
-                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 1,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"admin\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "body": "{\n    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"trigger\": [\n        {\n            \"type\": \"amount\",\n            \"amount\": 100,\n            \"currency\": \"USD\"\n        }\n    ],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"rolesList\",\n            \"value\": [\n                \"Admin\",\n                \"Controller\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update an invoice approval policy associated with an entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/approval-policy/:policyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "approval-policy",
+                        ":policyId"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        },
+                        {
+                          "key": "policyId",
+                          "description": null,
+                          "value": "apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"userList\",\n            \"value\": [\n                \"usr_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"usr_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"id\": \"apvl_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"trigger\": [],\n    \"rule\": {\n        \"type\": \"approver\",\n        \"numApprovers\": 2,\n        \"identifierList\": {\n            \"type\": \"userList\",\n            \"value\": [\n                \"usr_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"usr_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n            ]\n        }\n    },\n    \"upstreamPolicyId\": \"root\"\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -2328,6 +2794,185 @@
         {
           "_type": "container",
           "description": null,
+          "name": "Customization",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Get entity customization.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/customization",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "customization"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get entity customization.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/customization",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "customization"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "{\n    \"metadata\": [\n        {\n            \"key\": \"my_custom_field\",\n            \"disabled\": true\n        },\n        {\n            \"key\": \"my_other_field\",\n            \"disabled\": false\n        }\n    ],\n    \"paymentSource\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"custom\",\n            \"schemaId\": \"cpms_7df2974a-4069-454c-912f-7e58ebe030fb\",\n            \"disabled\": true\n        }\n    ],\n    \"backupDisbursement\": [\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ],\n    \"paymentDestination\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ]\n}",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Update",
+              "request": {
+                "description": "Update entity customization. This lets you turn off metadata and payment methods for an entity.",
+                "url": {
+                  "raw": "{{baseUrl}}/entity/:entityId/customization",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    ":entityId",
+                    "customization"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityId",
+                      "description": null,
+                      "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"metadata\": [\n        {\n            \"key\": \"my_custom_field\",\n            \"disabled\": true\n        },\n        {\n            \"key\": \"my_other_field\",\n            \"disabled\": false\n        }\n    ],\n    \"paymentSource\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"custom\",\n            \"schemaId\": \"cpms_7df2974a-4069-454c-912f-7e58ebe030fb\",\n            \"disabled\": true\n        }\n    ],\n    \"backupDisbursement\": [\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ],\n    \"paymentDestination\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update entity customization. This lets you turn off metadata and payment methods for an entity.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/customization",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "customization"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"metadata\": [\n        {\n            \"key\": \"my_custom_field\",\n            \"disabled\": true\n        },\n        {\n            \"key\": \"my_other_field\",\n            \"disabled\": false\n        }\n    ],\n    \"paymentSource\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"custom\",\n            \"schemaId\": \"cpms_7df2974a-4069-454c-912f-7e58ebe030fb\",\n            \"disabled\": true\n        }\n    ],\n    \"backupDisbursement\": [\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ],\n    \"paymentDestination\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ]\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"metadata\": [\n        {\n            \"key\": \"my_custom_field\",\n            \"disabled\": true\n        },\n        {\n            \"key\": \"my_other_field\",\n            \"disabled\": false\n        }\n    ],\n    \"paymentSource\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"custom\",\n            \"schemaId\": \"cpms_7df2974a-4069-454c-912f-7e58ebe030fb\",\n            \"disabled\": true\n        }\n    ],\n    \"backupDisbursement\": [\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ],\n    \"paymentDestination\": [\n        {\n            \"type\": \"bankAccount\",\n            \"disabled\": true\n        },\n        {\n            \"type\": \"check\",\n            \"disabled\": true\n        }\n    ]\n}",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "container",
+          "description": null,
           "name": "External Accounting System",
           "item": [
             {
@@ -2740,7 +3385,7 @@
                     "body": null
                   },
                   "description": null,
-                  "body": "{\n    \"count\": 10,\n    \"hasMore\": true,\n    \"data\": [\n        {\n            \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n            \"status\": \"PAID\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n            \"deductionDate\": \"2021-01-01T00:00:00Z\",\n            \"settlementDate\": \"2021-01-03T00:00:00Z\",\n            \"dueDate\": \"2021-01-31T00:00:00Z\",\n            \"invoiceNumber\": \"INV-123\",\n            \"noteToSelf\": \"For the month of January\",\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"payer\": {\n                \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"name\": \"Acme Inc.\",\n                \"email\": \"customer@acme.com\",\n                \"acceptedTos\": true,\n                \"status\": \"verified\",\n                \"isCustomer\": true,\n                \"isPayor\": true,\n                \"isPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"customer@acme.com\",\n                        \"legalBusinessName\": \"Acme Inc.\",\n                        \"businessType\": \"llc\",\n                        \"phone\": {\n                            \"countryCode\": \"1\",\n                            \"number\": \"4155551234\"\n                        },\n                        \"address\": {\n                            \"addressLine1\": \"123 Main St\",\n                            \"addressLine2\": \"Unit 1\",\n                            \"city\": \"San Francisco\",\n                            \"stateOrProvince\": \"CA\",\n                            \"postalCode\": \"94105\",\n                            \"country\": \"US\"\n                        },\n                        \"taxIDProvided\": true,\n                        \"ownersProvided\": true\n                    }\n                }\n            },\n            \"paymentSource\": {\n                \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                \"type\": \"bankAccount\",\n                \"accountName\": \"My Checking Account\",\n                \"bankName\": \"Chase\",\n                \"routingNumber\": \"12345678\",\n                \"accountNumber\": \"99988767623\",\n                \"accountType\": \"CHECKING\",\n                \"status\": \"VERIFIED\",\n                \"isDefaultSource\": true,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n            \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"vendor\": {\n                \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                \"foreignId\": \"MY-DB-ID-90909\",\n                \"name\": \"Big Box Store\",\n                \"email\": \"vendor@bigboxstore.com\",\n                \"acceptedTos\": false,\n                \"status\": \"unverified\",\n                \"isCustomer\": false,\n                \"isPayor\": false,\n                \"isPayee\": true,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"vendor@bigboxstore.com\",\n                        \"legalBusinessName\": \"Big Box Store\",\n                        \"businessType\": \"publicCorporation\",\n                        \"taxIDProvided\": false,\n                        \"ownersProvided\": false\n                    }\n                }\n            },\n            \"paymentDestination\": {\n                \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n                \"type\": \"check\",\n                \"payToTheOrderOf\": \"John Doe\",\n                \"addressLine1\": \"123 Main St\",\n                \"addressLine2\": \"Apt 1\",\n                \"city\": \"New York\",\n                \"stateOrProvince\": \"NY\",\n                \"postalCode\": \"10001\",\n                \"country\": \"US\",\n                \"isDefaultSource\": false,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n            \"paymentDestinationOptions\": {\n                \"type\": \"check\",\n                \"delivery\": \"MAIL\"\n            },\n            \"paymentDestinationConfirmed\": true,\n            \"hasDocuments\": true,\n            \"hasSourceEmail\": true,\n            \"comments\": [\n                {\n                    \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n                    \"text\": \"This is an approval comment\",\n                    \"user\": {\n                        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                        \"foreignId\": \"MY-DB-ID-12345\",\n                        \"email\": \"john.doe@acme.com\",\n                        \"name\": \"John Doe\",\n                        \"roles\": [\n                            \"admin\",\n                            \"approver\"\n                        ],\n                        \"createdAt\": \"2024-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n                    },\n                    \"associatedApprovalAction\": {\n                        \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                        \"action\": \"APPROVE\"\n                    },\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"lineItems\": [\n                {\n                    \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\",\n                    \"description\": \"Product A\",\n                    \"name\": \"Product A\",\n                    \"quantity\": 1,\n                    \"unitPrice\": 100,\n                    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n                    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n                    \"metadata\": {\n                        \"key1\": \"value1\",\n                        \"key2\": \"value2\"\n                    },\n                    \"glAccountId\": \"600394\",\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvers\": [\n                {\n                    \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n                    \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n                    \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                    \"action\": \"APPROVE\",\n                    \"eligibleUserIds\": [\n                        \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n                    ],\n                    \"eligibleRoles\": [\n                        \"admin\"\n                    ],\n                    \"date\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvalPolicy\": [\n                {\n                    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"trigger\": [],\n                    \"rule\": {\n                        \"type\": \"approver\",\n                        \"numApprovers\": 1,\n                        \"identifierList\": {\n                            \"type\": \"rolesList\",\n                            \"value\": [\n                                \"admin\"\n                            ]\n                        }\n                    },\n                    \"upstreamPolicyId\": \"root\"\n                }\n            ],\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"foreignId\": \"YOUR-DATABASE-ID\",\n            \"creatorUser\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"processedAt\": \"2021-01-01T00:00:00Z\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ]\n}",
+                  "body": "{\n    \"count\": 10,\n    \"hasMore\": true,\n    \"data\": [\n        {\n            \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n            \"status\": \"PAID\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n            \"deductionDate\": \"2021-01-01T00:00:00Z\",\n            \"settlementDate\": \"2021-01-03T00:00:00Z\",\n            \"dueDate\": \"2021-01-31T00:00:00Z\",\n            \"invoiceNumber\": \"INV-123\",\n            \"noteToSelf\": \"For the month of January\",\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"payer\": {\n                \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"name\": \"Acme Inc.\",\n                \"email\": \"customer@acme.com\",\n                \"acceptedTos\": true,\n                \"status\": \"verified\",\n                \"isCustomer\": true,\n                \"isPayor\": true,\n                \"isPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"customer@acme.com\",\n                        \"legalBusinessName\": \"Acme Inc.\",\n                        \"businessType\": \"llc\",\n                        \"phone\": {\n                            \"countryCode\": \"1\",\n                            \"number\": \"4155551234\"\n                        },\n                        \"address\": {\n                            \"addressLine1\": \"123 Main St\",\n                            \"addressLine2\": \"Unit 1\",\n                            \"city\": \"San Francisco\",\n                            \"stateOrProvince\": \"CA\",\n                            \"postalCode\": \"94105\",\n                            \"country\": \"US\"\n                        },\n                        \"taxIDProvided\": true,\n                        \"ownersProvided\": true\n                    }\n                }\n            },\n            \"paymentSource\": {\n                \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                \"type\": \"bankAccount\",\n                \"accountName\": \"My Checking Account\",\n                \"bankName\": \"Chase\",\n                \"routingNumber\": \"12345678\",\n                \"accountNumber\": \"99988767623\",\n                \"accountType\": \"CHECKING\",\n                \"status\": \"VERIFIED\",\n                \"isDefaultSource\": true,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n            \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"vendor\": {\n                \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                \"foreignId\": \"MY-DB-ID-90909\",\n                \"name\": \"Big Box Store\",\n                \"email\": \"vendor@bigboxstore.com\",\n                \"acceptedTos\": false,\n                \"status\": \"unverified\",\n                \"isCustomer\": false,\n                \"isPayor\": false,\n                \"isPayee\": true,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"vendor@bigboxstore.com\",\n                        \"legalBusinessName\": \"Big Box Store\",\n                        \"businessType\": \"publicCorporation\",\n                        \"taxIDProvided\": false,\n                        \"ownersProvided\": false\n                    }\n                }\n            },\n            \"paymentDestination\": {\n                \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n                \"type\": \"check\",\n                \"payToTheOrderOf\": \"John Doe\",\n                \"addressLine1\": \"123 Main St\",\n                \"addressLine2\": \"Apt 1\",\n                \"city\": \"New York\",\n                \"stateOrProvince\": \"NY\",\n                \"postalCode\": \"10001\",\n                \"country\": \"US\",\n                \"isDefaultSource\": false,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n            \"paymentDestinationOptions\": {\n                \"type\": \"check\",\n                \"delivery\": \"MAIL\"\n            },\n            \"paymentDestinationConfirmed\": true,\n            \"hasDocuments\": true,\n            \"hasSourceEmail\": true,\n            \"comments\": [\n                {\n                    \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n                    \"text\": \"This is an approval comment\",\n                    \"user\": {\n                        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                        \"foreignId\": \"MY-DB-ID-12345\",\n                        \"email\": \"john.doe@acme.com\",\n                        \"name\": \"John Doe\",\n                        \"roles\": [\n                            \"admin\",\n                            \"approver\"\n                        ],\n                        \"createdAt\": \"2024-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n                    },\n                    \"associatedApprovalAction\": {\n                        \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                        \"action\": \"APPROVE\"\n                    },\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"lineItems\": [\n                {\n                    \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\",\n                    \"description\": \"Product A\",\n                    \"name\": \"Product A\",\n                    \"quantity\": 1,\n                    \"unitPrice\": 100,\n                    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n                    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n                    \"metadata\": {\n                        \"key1\": \"value1\",\n                        \"key2\": \"value2\"\n                    },\n                    \"glAccountId\": \"600394\",\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvers\": [\n                {\n                    \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n                    \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n                    \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                    \"action\": \"APPROVE\",\n                    \"eligibleUserIds\": [\n                        \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n                    ],\n                    \"eligibleRoles\": [\n                        \"admin\"\n                    ],\n                    \"date\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvalPolicy\": [\n                {\n                    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"trigger\": [\n                        {\n                            \"type\": \"amount\",\n                            \"amount\": 100,\n                            \"currency\": \"USD\"\n                        }\n                    ],\n                    \"rule\": {\n                        \"type\": \"approver\",\n                        \"numApprovers\": 2,\n                        \"identifierList\": {\n                            \"type\": \"rolesList\",\n                            \"value\": [\n                                \"Admin\",\n                                \"Controller\"\n                            ]\n                        }\n                    },\n                    \"upstreamPolicyId\": \"root\"\n                }\n            ],\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"foreignId\": \"YOUR-DATABASE-ID\",\n            \"creatorUser\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"processedAt\": \"2021-01-01T00:00:00Z\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ]\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -2996,7 +3641,7 @@
                     {
                       "key": "key",
                       "description": null,
-                      "value": "projectId"
+                      "value": "propertyId"
                     }
                   ]
                 },
@@ -3012,6 +3657,52 @@
                 "body": null
               },
               "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Retrieve metadata associated with a specific key",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "metadata",
+                        ":key"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "key",
+                          "description": null,
+                          "value": "propertyId"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "[\n    \"{key: 'prop_123', value: 'Beach Rental'}\",\n    \"{key: 'prop_456', value: 'City Rental'}\"\n]",
+                  "_postman_previewlanguage": "json"
+                },
                 {
                   "name": "Success",
                   "status": "OK",
@@ -3162,6 +3853,60 @@
                   },
                   "description": null,
                   "body": "[\n    \"{key: 'prop_123', value: 'Beach Rental'}\",\n    \"{key: 'prop_456', value: 'City Rental'}\"\n]",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update metadata associated with a specific key",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/metadata/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "metadata",
+                        ":key"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "key",
+                          "description": null,
+                          "value": "projectId"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n    \"proj_123\",\n    \"proj_456\"\n]",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "[\n    \"proj_123\",\n    \"proj_456\"\n]",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -3428,6 +4173,52 @@
                   "description": null,
                   "body": "{\n    \"disabled\": false,\n    \"additionalRoles\": [\n        \"admin\",\n        \"approver\"\n    ],\n    \"type\": \"INVOICE_APPROVAL_NEEDED\"\n}",
                   "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Retrieve notification policy associated with this entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/notification-policy/:notificationType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "notification-policy",
+                        ":notificationType"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        },
+                        {
+                          "key": "notificationType",
+                          "description": null,
+                          "value": "INVOICE_APPROVED"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "{\n    \"disabled\": false,\n    \"additionalRoles\": [\n        \"admin\",\n        \"bookkeeper\"\n    ],\n    \"type\": \"INVOICE_APPROVED\"\n}",
+                  "_postman_previewlanguage": "json"
                 }
               ]
             },
@@ -3533,6 +4324,114 @@
                   },
                   "description": null,
                   "body": "{\n    \"disabled\": false,\n    \"additionalRoles\": [\n        \"admin\",\n        \"approver\"\n    ],\n    \"type\": \"INVOICE_APPROVAL_NEEDED\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update notification policy associated with this entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/notification-policy/:notificationType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "notification-policy",
+                        ":notificationType"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        },
+                        {
+                          "key": "notificationType",
+                          "description": null,
+                          "value": "INVOICE_APPROVED"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"disabled\": false,\n    \"additionalRoles\": [\n        \"admin\",\n        \"bookkeeper\"\n    ]\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"disabled\": false,\n    \"additionalRoles\": [\n        \"admin\",\n        \"bookkeeper\"\n    ],\n    \"type\": \"INVOICE_APPROVED\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Update notification policy associated with this entity",
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/notification-policy/:notificationType",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "notification-policy",
+                        ":notificationType"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        },
+                        {
+                          "key": "notificationType",
+                          "description": null,
+                          "value": "INVOICE_APPROVED"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"disabled\": true,\n    \"additionalRoles\": []\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"disabled\": true,\n    \"additionalRoles\": [],\n    \"type\": \"INVOICE_APPROVED\"\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -3703,7 +4602,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"bankName\": \"Chase\",\n    \"routingNumber\": \"12345678\",\n    \"accountNumber\": \"99988767623\",\n    \"accountType\": \"CHECKING\"\n}",
+                  "raw": "{\n    \"type\": \"bankAccount\",\n    \"routingNumber\": \"12345678\",\n    \"accountNumber\": \"99988767623\",\n    \"accountType\": \"CHECKING\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -3748,7 +4647,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"type\": \"bankAccount\",\n    \"bankName\": \"Chase\",\n    \"routingNumber\": \"12345678\",\n    \"accountNumber\": \"99988767623\",\n    \"accountType\": \"CHECKING\"\n}",
+                      "raw": "{\n    \"type\": \"bankAccount\",\n    \"routingNumber\": \"12345678\",\n    \"accountNumber\": \"99988767623\",\n    \"accountType\": \"CHECKING\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -3796,7 +4695,7 @@
                     "auth": null,
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n    \"type\": \"bankAccount\",\n    \"bankName\": \"Chase\",\n    \"routingNumber\": \"66554433\",\n    \"accountNumber\": \"55934059697648\",\n    \"accountType\": \"CHECKING\"\n}",
+                      "raw": "{\n    \"type\": \"bankAccount\",\n    \"routingNumber\": \"66554433\",\n    \"accountNumber\": \"55934059697648\",\n    \"accountType\": \"CHECKING\"\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -3806,6 +4705,102 @@
                   },
                   "description": null,
                   "body": "{\n    \"id\": \"pm_7610541f-4619-4033-8620-cfccfb811293\",\n    \"type\": \"bankAccount\",\n    \"accountName\": \"Vendor Checking Account\",\n    \"bankName\": \"Chase\",\n    \"routingNumber\": \"66554433\",\n    \"accountNumber\": \"55934059697648\",\n    \"accountType\": \"CHECKING\",\n    \"status\": \"NEW\",\n    \"isDefaultSource\": true,\n    \"isDefaultDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": null,
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/paymentMethod",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "paymentMethod"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_21661ac1-a2a8-4465-a6c0-64474ba8181d"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"type\": \"check\",\n    \"payToTheOrderOf\": \"John Doe\",\n    \"addressLine1\": \"123 Main St\",\n    \"addressLine2\": \"Apt 1\",\n    \"city\": \"New York\",\n    \"stateOrProvince\": \"NY\",\n    \"postalCode\": \"10001\",\n    \"country\": \"US\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"type\": \"check\",\n    \"payToTheOrderOf\": \"John Doe\",\n    \"addressLine1\": \"123 Main St\",\n    \"addressLine2\": \"Apt 1\",\n    \"city\": \"New York\",\n    \"stateOrProvince\": \"NY\",\n    \"postalCode\": \"10001\",\n    \"country\": \"US\",\n    \"isDefaultSource\": false,\n    \"isDefaultDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+                  "_postman_previewlanguage": "json"
+                },
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": null,
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/:entityId/paymentMethod",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        ":entityId",
+                        "paymentMethod"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityId",
+                          "description": null,
+                          "value": "ent_21661ac1-a2a8-4465-a6c0-64474ba8181d"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"type\": \"custom\",\n    \"foreignId\": \"DB_FOREIGN_ID\",\n    \"accountName\": \"Vendor Wire Account\",\n    \"accountNumber\": \"123456789\",\n    \"schemaId\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"data\": {\n        \"bankName\": \"Chase\",\n        \"recipientName\": \"John Doe\",\n        \"routingNumber\": \"123456789\",\n        \"accountNumber\": \"99988767623\"\n    }\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "{\n    \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"type\": \"custom\",\n    \"foreignId\": \"DB_FOREIGN_ID\",\n    \"accountName\": \"Vendor Wire Account\",\n    \"accountNumber\": \"123456789\",\n    \"schemaId\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"schema\": {\n        \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"name\": \"Wire\",\n        \"isSource\": false,\n        \"isDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\",\n            \"EUR\"\n        ],\n        \"fields\": [\n            {\n                \"name\": \"bankName\",\n                \"displayName\": \"Bank Name\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"recipientName\",\n                \"displayName\": \"Recipient Name\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"accountNumber\",\n                \"displayName\": \"Account Number\",\n                \"type\": \"number\",\n                \"optional\": false,\n                \"useAsAccountNumber\": true\n            },\n            {\n                \"name\": \"routingNumber\",\n                \"displayName\": \"Routing Number\",\n                \"type\": \"number\",\n                \"optional\": false\n            }\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"data\": {\n        \"bankName\": \"Chase\",\n        \"recipientName\": \"John Doe\",\n        \"routingNumber\": \"123456789\",\n        \"accountNumber\": \"99988767623\"\n    },\n    \"isDefaultSource\": false,\n    \"isDefaultDestination\": false,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
                   "_postman_previewlanguage": "json"
                 }
               ]
@@ -7207,7 +8202,7 @@
                 "body": null
               },
               "description": null,
-              "body": "{\n    \"count\": 10,\n    \"hasMore\": true,\n    \"data\": [\n        {\n            \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n            \"status\": \"PAID\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n            \"deductionDate\": \"2021-01-01T00:00:00Z\",\n            \"settlementDate\": \"2021-01-03T00:00:00Z\",\n            \"dueDate\": \"2021-01-31T00:00:00Z\",\n            \"invoiceNumber\": \"INV-123\",\n            \"noteToSelf\": \"For the month of January\",\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"payer\": {\n                \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"name\": \"Acme Inc.\",\n                \"email\": \"customer@acme.com\",\n                \"acceptedTos\": true,\n                \"status\": \"verified\",\n                \"isCustomer\": true,\n                \"isPayor\": true,\n                \"isPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"customer@acme.com\",\n                        \"legalBusinessName\": \"Acme Inc.\",\n                        \"businessType\": \"llc\",\n                        \"phone\": {\n                            \"countryCode\": \"1\",\n                            \"number\": \"4155551234\"\n                        },\n                        \"address\": {\n                            \"addressLine1\": \"123 Main St\",\n                            \"addressLine2\": \"Unit 1\",\n                            \"city\": \"San Francisco\",\n                            \"stateOrProvince\": \"CA\",\n                            \"postalCode\": \"94105\",\n                            \"country\": \"US\"\n                        },\n                        \"taxIDProvided\": true,\n                        \"ownersProvided\": true\n                    }\n                }\n            },\n            \"paymentSource\": {\n                \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                \"type\": \"bankAccount\",\n                \"accountName\": \"My Checking Account\",\n                \"bankName\": \"Chase\",\n                \"routingNumber\": \"12345678\",\n                \"accountNumber\": \"99988767623\",\n                \"accountType\": \"CHECKING\",\n                \"status\": \"VERIFIED\",\n                \"isDefaultSource\": true,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n            \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"vendor\": {\n                \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                \"foreignId\": \"MY-DB-ID-90909\",\n                \"name\": \"Big Box Store\",\n                \"email\": \"vendor@bigboxstore.com\",\n                \"acceptedTos\": false,\n                \"status\": \"unverified\",\n                \"isCustomer\": false,\n                \"isPayor\": false,\n                \"isPayee\": true,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"vendor@bigboxstore.com\",\n                        \"legalBusinessName\": \"Big Box Store\",\n                        \"businessType\": \"publicCorporation\",\n                        \"taxIDProvided\": false,\n                        \"ownersProvided\": false\n                    }\n                }\n            },\n            \"paymentDestination\": {\n                \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n                \"type\": \"check\",\n                \"payToTheOrderOf\": \"John Doe\",\n                \"addressLine1\": \"123 Main St\",\n                \"addressLine2\": \"Apt 1\",\n                \"city\": \"New York\",\n                \"stateOrProvince\": \"NY\",\n                \"postalCode\": \"10001\",\n                \"country\": \"US\",\n                \"isDefaultSource\": false,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n            \"paymentDestinationOptions\": {\n                \"type\": \"check\",\n                \"delivery\": \"MAIL\"\n            },\n            \"paymentDestinationConfirmed\": true,\n            \"hasDocuments\": true,\n            \"hasSourceEmail\": true,\n            \"comments\": [\n                {\n                    \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n                    \"text\": \"This is an approval comment\",\n                    \"user\": {\n                        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                        \"foreignId\": \"MY-DB-ID-12345\",\n                        \"email\": \"john.doe@acme.com\",\n                        \"name\": \"John Doe\",\n                        \"roles\": [\n                            \"admin\",\n                            \"approver\"\n                        ],\n                        \"createdAt\": \"2024-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n                    },\n                    \"associatedApprovalAction\": {\n                        \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                        \"action\": \"APPROVE\"\n                    },\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"lineItems\": [\n                {\n                    \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\",\n                    \"description\": \"Product A\",\n                    \"name\": \"Product A\",\n                    \"quantity\": 1,\n                    \"unitPrice\": 100,\n                    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n                    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n                    \"metadata\": {\n                        \"key1\": \"value1\",\n                        \"key2\": \"value2\"\n                    },\n                    \"glAccountId\": \"600394\",\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvers\": [\n                {\n                    \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n                    \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n                    \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                    \"action\": \"APPROVE\",\n                    \"eligibleUserIds\": [\n                        \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n                    ],\n                    \"eligibleRoles\": [\n                        \"admin\"\n                    ],\n                    \"date\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvalPolicy\": [\n                {\n                    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"trigger\": [],\n                    \"rule\": {\n                        \"type\": \"approver\",\n                        \"numApprovers\": 1,\n                        \"identifierList\": {\n                            \"type\": \"rolesList\",\n                            \"value\": [\n                                \"admin\"\n                            ]\n                        }\n                    },\n                    \"upstreamPolicyId\": \"root\"\n                }\n            ],\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"foreignId\": \"YOUR-DATABASE-ID\",\n            \"creatorUser\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"processedAt\": \"2021-01-01T00:00:00Z\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ]\n}",
+              "body": "{\n    \"count\": 10,\n    \"hasMore\": true,\n    \"data\": [\n        {\n            \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n            \"status\": \"PAID\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n            \"deductionDate\": \"2021-01-01T00:00:00Z\",\n            \"settlementDate\": \"2021-01-03T00:00:00Z\",\n            \"dueDate\": \"2021-01-31T00:00:00Z\",\n            \"invoiceNumber\": \"INV-123\",\n            \"noteToSelf\": \"For the month of January\",\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"payer\": {\n                \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"name\": \"Acme Inc.\",\n                \"email\": \"customer@acme.com\",\n                \"acceptedTos\": true,\n                \"status\": \"verified\",\n                \"isCustomer\": true,\n                \"isPayor\": true,\n                \"isPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"customer@acme.com\",\n                        \"legalBusinessName\": \"Acme Inc.\",\n                        \"businessType\": \"llc\",\n                        \"phone\": {\n                            \"countryCode\": \"1\",\n                            \"number\": \"4155551234\"\n                        },\n                        \"address\": {\n                            \"addressLine1\": \"123 Main St\",\n                            \"addressLine2\": \"Unit 1\",\n                            \"city\": \"San Francisco\",\n                            \"stateOrProvince\": \"CA\",\n                            \"postalCode\": \"94105\",\n                            \"country\": \"US\"\n                        },\n                        \"taxIDProvided\": true,\n                        \"ownersProvided\": true\n                    }\n                }\n            },\n            \"paymentSource\": {\n                \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                \"type\": \"bankAccount\",\n                \"accountName\": \"My Checking Account\",\n                \"bankName\": \"Chase\",\n                \"routingNumber\": \"12345678\",\n                \"accountNumber\": \"99988767623\",\n                \"accountType\": \"CHECKING\",\n                \"status\": \"VERIFIED\",\n                \"isDefaultSource\": true,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n            \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"vendor\": {\n                \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                \"foreignId\": \"MY-DB-ID-90909\",\n                \"name\": \"Big Box Store\",\n                \"email\": \"vendor@bigboxstore.com\",\n                \"acceptedTos\": false,\n                \"status\": \"unverified\",\n                \"isCustomer\": false,\n                \"isPayor\": false,\n                \"isPayee\": true,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"vendor@bigboxstore.com\",\n                        \"legalBusinessName\": \"Big Box Store\",\n                        \"businessType\": \"publicCorporation\",\n                        \"taxIDProvided\": false,\n                        \"ownersProvided\": false\n                    }\n                }\n            },\n            \"paymentDestination\": {\n                \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n                \"type\": \"check\",\n                \"payToTheOrderOf\": \"John Doe\",\n                \"addressLine1\": \"123 Main St\",\n                \"addressLine2\": \"Apt 1\",\n                \"city\": \"New York\",\n                \"stateOrProvince\": \"NY\",\n                \"postalCode\": \"10001\",\n                \"country\": \"US\",\n                \"isDefaultSource\": false,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n            \"paymentDestinationOptions\": {\n                \"type\": \"check\",\n                \"delivery\": \"MAIL\"\n            },\n            \"paymentDestinationConfirmed\": true,\n            \"hasDocuments\": true,\n            \"hasSourceEmail\": true,\n            \"comments\": [\n                {\n                    \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n                    \"text\": \"This is an approval comment\",\n                    \"user\": {\n                        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                        \"foreignId\": \"MY-DB-ID-12345\",\n                        \"email\": \"john.doe@acme.com\",\n                        \"name\": \"John Doe\",\n                        \"roles\": [\n                            \"admin\",\n                            \"approver\"\n                        ],\n                        \"createdAt\": \"2024-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n                    },\n                    \"associatedApprovalAction\": {\n                        \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                        \"action\": \"APPROVE\"\n                    },\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"lineItems\": [\n                {\n                    \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\",\n                    \"description\": \"Product A\",\n                    \"name\": \"Product A\",\n                    \"quantity\": 1,\n                    \"unitPrice\": 100,\n                    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n                    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n                    \"metadata\": {\n                        \"key1\": \"value1\",\n                        \"key2\": \"value2\"\n                    },\n                    \"glAccountId\": \"600394\",\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvers\": [\n                {\n                    \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n                    \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n                    \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                    \"action\": \"APPROVE\",\n                    \"eligibleUserIds\": [\n                        \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n                    ],\n                    \"eligibleRoles\": [\n                        \"admin\"\n                    ],\n                    \"date\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvalPolicy\": [\n                {\n                    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"trigger\": [\n                        {\n                            \"type\": \"amount\",\n                            \"amount\": 100,\n                            \"currency\": \"USD\"\n                        }\n                    ],\n                    \"rule\": {\n                        \"type\": \"approver\",\n                        \"numApprovers\": 2,\n                        \"identifierList\": {\n                            \"type\": \"rolesList\",\n                            \"value\": [\n                                \"Admin\",\n                                \"Controller\"\n                            ]\n                        }\n                    },\n                    \"upstreamPolicyId\": \"root\"\n                }\n            ],\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"foreignId\": \"YOUR-DATABASE-ID\",\n            \"creatorUser\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"processedAt\": \"2021-01-01T00:00:00Z\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ]\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -7285,7 +8280,7 @@
                 }
               },
               "description": null,
-              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 1,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"admin\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [\n                {\n                    \"type\": \"amount\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\"\n                }\n            ],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 2,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"Admin\",\n                        \"Controller\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
               "_postman_previewlanguage": "json"
             },
             {
@@ -7481,7 +8476,7 @@
                 "body": null
               },
               "description": null,
-              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 1,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"admin\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [\n                {\n                    \"type\": \"amount\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\"\n                }\n            ],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 2,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"Admin\",\n                        \"Controller\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -7573,7 +8568,7 @@
                 }
               },
               "description": null,
-              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 1,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"admin\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "body": "{\n    \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n    \"status\": \"PAID\",\n    \"amount\": 100,\n    \"currency\": \"USD\",\n    \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n    \"deductionDate\": \"2021-01-01T00:00:00Z\",\n    \"settlementDate\": \"2021-01-03T00:00:00Z\",\n    \"dueDate\": \"2021-01-31T00:00:00Z\",\n    \"invoiceNumber\": \"INV-123\",\n    \"noteToSelf\": \"For the month of January\",\n    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n    \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n    \"payer\": {\n        \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"name\": \"Acme Inc.\",\n        \"email\": \"customer@acme.com\",\n        \"acceptedTos\": true,\n        \"status\": \"verified\",\n        \"isCustomer\": true,\n        \"isPayor\": true,\n        \"isPayee\": false,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"customer@acme.com\",\n                \"legalBusinessName\": \"Acme Inc.\",\n                \"businessType\": \"llc\",\n                \"phone\": {\n                    \"countryCode\": \"1\",\n                    \"number\": \"4155551234\"\n                },\n                \"address\": {\n                    \"addressLine1\": \"123 Main St\",\n                    \"addressLine2\": \"Unit 1\",\n                    \"city\": \"San Francisco\",\n                    \"stateOrProvince\": \"CA\",\n                    \"postalCode\": \"94105\",\n                    \"country\": \"US\"\n                },\n                \"taxIDProvided\": true,\n                \"ownersProvided\": true\n            }\n        }\n    },\n    \"paymentSource\": {\n        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"type\": \"bankAccount\",\n        \"accountName\": \"My Checking Account\",\n        \"bankName\": \"Chase\",\n        \"routingNumber\": \"12345678\",\n        \"accountNumber\": \"99988767623\",\n        \"accountType\": \"CHECKING\",\n        \"status\": \"VERIFIED\",\n        \"isDefaultSource\": true,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n    \"vendor\": {\n        \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n        \"foreignId\": \"MY-DB-ID-90909\",\n        \"name\": \"Big Box Store\",\n        \"email\": \"vendor@bigboxstore.com\",\n        \"acceptedTos\": false,\n        \"status\": \"unverified\",\n        \"isCustomer\": false,\n        \"isPayor\": false,\n        \"isPayee\": true,\n        \"accountType\": \"business\",\n        \"updatedAt\": \"2024-01-02T00:00:00Z\",\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"profile\": {\n            \"business\": {\n                \"email\": \"vendor@bigboxstore.com\",\n                \"legalBusinessName\": \"Big Box Store\",\n                \"businessType\": \"publicCorporation\",\n                \"taxIDProvided\": false,\n                \"ownersProvided\": false\n            }\n        }\n    },\n    \"paymentDestination\": {\n        \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n        \"type\": \"check\",\n        \"payToTheOrderOf\": \"John Doe\",\n        \"addressLine1\": \"123 Main St\",\n        \"addressLine2\": \"Apt 1\",\n        \"city\": \"New York\",\n        \"stateOrProvince\": \"NY\",\n        \"postalCode\": \"10001\",\n        \"country\": \"US\",\n        \"isDefaultSource\": false,\n        \"isDefaultDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n    \"paymentDestinationOptions\": {\n        \"type\": \"check\",\n        \"delivery\": \"MAIL\"\n    },\n    \"paymentDestinationConfirmed\": true,\n    \"hasDocuments\": true,\n    \"hasSourceEmail\": true,\n    \"comments\": [\n        {\n            \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n            \"text\": \"This is an approval comment\",\n            \"user\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"associatedApprovalAction\": {\n                \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                \"action\": \"APPROVE\"\n            },\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"lineItems\": [\n        {\n            \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"description\": \"Product A\",\n            \"name\": \"Product A\",\n            \"quantity\": 1,\n            \"unitPrice\": 100,\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"glAccountId\": \"600394\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvers\": [\n        {\n            \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n            \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n            \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n            \"action\": \"APPROVE\",\n            \"eligibleUserIds\": [\n                \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n            ],\n            \"eligibleRoles\": [\n                \"admin\"\n            ],\n            \"date\": \"2021-01-01T00:00:00Z\"\n        }\n    ],\n    \"approvalPolicy\": [\n        {\n            \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"trigger\": [\n                {\n                    \"type\": \"amount\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\"\n                }\n            ],\n            \"rule\": {\n                \"type\": \"approver\",\n                \"numApprovers\": 2,\n                \"identifierList\": {\n                    \"type\": \"rolesList\",\n                    \"value\": [\n                        \"Admin\",\n                        \"Controller\"\n                    ]\n                }\n            },\n            \"upstreamPolicyId\": \"root\"\n        }\n    ],\n    \"metadata\": {\n        \"key1\": \"value1\",\n        \"key2\": \"value2\"\n    },\n    \"foreignId\": \"YOUR-DATABASE-ID\",\n    \"creatorUser\": {\n        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n        \"foreignId\": \"MY-DB-ID-12345\",\n        \"email\": \"john.doe@acme.com\",\n        \"name\": \"John Doe\",\n        \"roles\": [\n            \"admin\",\n            \"approver\"\n        ],\n        \"createdAt\": \"2024-01-01T00:00:00Z\",\n        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n    },\n    \"processedAt\": \"2021-01-01T00:00:00Z\",\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
               "_postman_previewlanguage": "json"
             },
             {
@@ -7967,7 +8962,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"markup\": {\n                    \"type\": \"flat\",\n                    \"amount\": 0\n                },\n                \"description\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"validationRules\": {\n                \"type\": \"regex\",\n                \"regex\": \"example\",\n                \"errorMessage\": \"example\"\n            },\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\"\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"validationRules\": {\n                \"type\": \"regex\",\n                \"regex\": \"example\",\n                \"errorMessage\": \"example\"\n            },\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -8169,7 +9164,7 @@
                 "body": null
               },
               "description": null,
-              "body": "[\n    {\n        \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"name\": \"Wire\",\n        \"isSource\": false,\n        \"isDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\",\n            \"EUR\"\n        ],\n        \"fields\": [\n            {\n                \"name\": \"accountName\",\n                \"displayName\": \"Account Name\",\n                \"type\": \"text\",\n                \"optional\": false,\n                \"useAsAccountName\": true\n            },\n            {\n                \"name\": \"accountNumber\",\n                \"displayName\": \"Account Number\",\n                \"type\": \"number\",\n                \"optional\": false,\n                \"useAsAccountNumber\": true\n            },\n            {\n                \"name\": \"routingNumber\",\n                \"displayName\": \"Routing Number\",\n                \"type\": \"number\",\n                \"optional\": false\n            }\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    {\n        \"id\": \"cpms_14f78dcd-4614-426e-a37a-7af262431d41\",\n        \"name\": \"Check\",\n        \"isSource\": false,\n        \"isDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"fields\": [\n            {\n                \"name\": \"payToTheOrderOf\",\n                \"displayName\": \"Pay To The Order Of\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"accountNumber\",\n                \"displayName\": \"Account Number\",\n                \"type\": \"number\",\n                \"optional\": false,\n                \"useAsAccountNumber\": true\n            },\n            {\n                \"name\": \"routingNumber\",\n                \"displayName\": \"Routing Number\",\n                \"type\": \"number\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"address\",\n                \"displayName\": \"Address\",\n                \"type\": \"address\",\n                \"optional\": false\n            }\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    }\n]",
+              "body": "[\n    {\n        \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n        \"name\": \"Wire\",\n        \"isSource\": false,\n        \"isDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\",\n            \"EUR\"\n        ],\n        \"fields\": [\n            {\n                \"name\": \"bankName\",\n                \"displayName\": \"Bank Name\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"recipientName\",\n                \"displayName\": \"Recipient Name\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"accountNumber\",\n                \"displayName\": \"Account Number\",\n                \"type\": \"number\",\n                \"optional\": false,\n                \"useAsAccountNumber\": true\n            },\n            {\n                \"name\": \"routingNumber\",\n                \"displayName\": \"Routing Number\",\n                \"type\": \"number\",\n                \"optional\": false\n            }\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    },\n    {\n        \"id\": \"cpms_14f78dcd-4614-426e-a37a-7af262431d41\",\n        \"name\": \"Check\",\n        \"isSource\": false,\n        \"isDestination\": true,\n        \"supportedCurrencies\": [\n            \"USD\"\n        ],\n        \"fields\": [\n            {\n                \"name\": \"payToTheOrderOf\",\n                \"displayName\": \"Pay To The Order Of\",\n                \"type\": \"text\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"accountNumber\",\n                \"displayName\": \"Account Number\",\n                \"type\": \"number\",\n                \"optional\": false,\n                \"useAsAccountNumber\": true\n            },\n            {\n                \"name\": \"routingNumber\",\n                \"displayName\": \"Routing Number\",\n                \"type\": \"number\",\n                \"optional\": false\n            },\n            {\n                \"name\": \"address\",\n                \"displayName\": \"Address\",\n                \"type\": \"address\",\n                \"optional\": false\n            }\n        ],\n        \"createdAt\": \"2021-01-01T00:00:00Z\",\n        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n    }\n]",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -8202,7 +9197,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"accountName\",\n            \"displayName\": \"Account Name\",\n            \"type\": \"text\",\n            \"optional\": false,\n            \"useAsAccountName\": true\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"bankName\",\n            \"displayName\": \"Bank Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"recipientName\",\n            \"displayName\": \"Recipient Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -8240,7 +9235,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"accountName\",\n            \"displayName\": \"Account Name\",\n            \"type\": \"text\",\n            \"optional\": false,\n            \"useAsAccountName\": true\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ]\n}",
+                  "raw": "{\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"bankName\",\n            \"displayName\": \"Bank Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"recipientName\",\n            \"displayName\": \"Recipient Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -8249,7 +9244,48 @@
                 }
               },
               "description": null,
-              "body": "{\n    \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"accountName\",\n            \"displayName\": \"Account Name\",\n            \"type\": \"text\",\n            \"optional\": false,\n            \"useAsAccountName\": true\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "body": "{\n    \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"bankName\",\n            \"displayName\": \"Bank Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"recipientName\",\n            \"displayName\": \"Recipient Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Create custom payment method schema",
+                "url": {
+                  "raw": "{{baseUrl}}/paymentMethod/schema",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentMethod",
+                    "schema"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Check\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"payToTheOrderOf\",\n            \"displayName\": \"Pay To The Order Of\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"address\",\n            \"displayName\": \"Address\",\n            \"type\": \"address\",\n            \"optional\": false\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"cpms_14f78dcd-4614-426e-a37a-7af262431d41\",\n    \"name\": \"Check\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"payToTheOrderOf\",\n            \"displayName\": \"Pay To The Order Of\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"address\",\n            \"displayName\": \"Address\",\n            \"type\": \"address\",\n            \"optional\": false\n        }\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -8344,6 +9380,54 @@
               },
               "description": null,
               "body": "{\n    \"id\": \"cpms_14f78dcd-4614-426e-a37a-7af262431d41\",\n    \"name\": \"Check\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"payToTheOrderOf\",\n            \"displayName\": \"Pay To The Order Of\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"address\",\n            \"displayName\": \"Address\",\n            \"type\": \"address\",\n            \"optional\": false\n        }\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Update custom payment method schema",
+                "url": {
+                  "raw": "{{baseUrl}}/paymentMethod/schema/:schemaId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentMethod",
+                    "schema",
+                    ":schemaId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "schemaId",
+                      "description": null,
+                      "value": "cpms_14f78dcd-4614-426e-a37a-7af262431d41"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"bankName\",\n            \"displayName\": \"Bank Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"recipientName\",\n            \"displayName\": \"Recipient Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"cpms_4794d597-70dc-4fec-b6ec-c5988e759769\",\n    \"name\": \"Wire\",\n    \"isSource\": false,\n    \"isDestination\": true,\n    \"supportedCurrencies\": [\n        \"USD\",\n        \"EUR\"\n    ],\n    \"fields\": [\n        {\n            \"name\": \"bankName\",\n            \"displayName\": \"Bank Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"recipientName\",\n            \"displayName\": \"Recipient Name\",\n            \"type\": \"text\",\n            \"optional\": false\n        },\n        {\n            \"name\": \"accountNumber\",\n            \"displayName\": \"Account Number\",\n            \"type\": \"number\",\n            \"optional\": false,\n            \"useAsAccountNumber\": true\n        },\n        {\n            \"name\": \"routingNumber\",\n            \"displayName\": \"Routing Number\",\n            \"type\": \"number\",\n            \"optional\": false\n        }\n    ],\n    \"createdAt\": \"2021-01-01T00:00:00Z\",\n    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n}",
               "_postman_previewlanguage": "json"
             }
           ]

@@ -970,7 +970,7 @@
               "_type": "endpoint",
               "name": "Get all entity users",
               "request": {
-                "description": "Get all entity users",
+                "description": "Get all entity users (DEPRECATED, use Search Entity Users)",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/users",
                   "host": [
@@ -1007,7 +1007,7 @@
                   "status": "OK",
                   "code": 200,
                   "originalRequest": {
-                    "description": "Get all entity users",
+                    "description": "Get all entity users (DEPRECATED, use Search Entity Users)",
                     "url": {
                       "raw": "{{baseUrl}}/entity/:entityId/users",
                       "host": [
@@ -1046,9 +1046,9 @@
             },
             {
               "_type": "endpoint",
-              "name": "Get all entity users",
+              "name": "Search entity users",
               "request": {
-                "description": "Get all entity users",
+                "description": "Search entity users",
                 "url": {
                   "raw": "{{baseUrl}}/entity/:entityId/users?name=John",
                   "host": [
@@ -1091,7 +1091,7 @@
                   "status": "OK",
                   "code": 200,
                   "originalRequest": {
-                    "description": "Get all entity users",
+                    "description": "Search entity users",
                     "url": {
                       "raw": "{{baseUrl}}/entity/:entityId/users?name=John",
                       "host": [
@@ -2798,7 +2798,7 @@
           "item": [
             {
               "_type": "endpoint",
-              "name": "Update",
+              "name": "Get",
               "request": {
                 "description": "Get entity customization.",
                 "url": {

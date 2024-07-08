@@ -30,6 +30,618 @@
     {
       "_type": "container",
       "description": null,
+      "name": "Entity Group",
+      "item": [
+        {
+          "_type": "container",
+          "description": null,
+          "name": "Invoice",
+          "item": [
+            {
+              "_type": "endpoint",
+              "name": "Get All",
+              "request": {
+                "description": "Get invoices for an entity group with the given filters.",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId/invoices?excludeReceivables=true&orderBy=CREATED_AT&orderDirection=ASC&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId",
+                    "invoices"
+                  ],
+                  "query": [
+                    {
+                      "key": "excludeReceivables",
+                      "description": "Return only invoices that are payable by the entity.",
+                      "value": "true"
+                    },
+                    {
+                      "key": "orderBy",
+                      "description": "Field to order invoices by. Defaults to CREATED_AT.",
+                      "value": "CREATED_AT"
+                    },
+                    {
+                      "key": "orderDirection",
+                      "description": "Direction to order invoices by. Defaults to asc.",
+                      "value": "ASC"
+                    },
+                    {
+                      "key": "limit",
+                      "description": "Number of invoices to return. Limit can range between 1 and 100, and the default is 10.",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": null,
+                      "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get invoices for an entity group with the given filters.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entityGroup/:entityGroupId/invoices?excludeReceivables=true&orderBy=CREATED_AT&orderDirection=ASC&limit=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entityGroup",
+                        ":entityGroupId",
+                        "invoices"
+                      ],
+                      "query": [
+                        {
+                          "key": "excludeReceivables",
+                          "description": "Return only invoices that are payable by the entity.",
+                          "value": "true"
+                        },
+                        {
+                          "key": "orderBy",
+                          "description": "Field to order invoices by. Defaults to CREATED_AT.",
+                          "value": "CREATED_AT"
+                        },
+                        {
+                          "key": "orderDirection",
+                          "description": "Direction to order invoices by. Defaults to asc.",
+                          "value": "ASC"
+                        },
+                        {
+                          "key": "limit",
+                          "description": "Number of invoices to return. Limit can range between 1 and 100, and the default is 10.",
+                          "value": "10"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "entityGroupId",
+                          "description": null,
+                          "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "{\n    \"count\": 10,\n    \"hasMore\": true,\n    \"data\": [\n        {\n            \"id\": \"inv_26e7b5d3-a739-4b23-9ad9-6aaa085f47a9\",\n            \"status\": \"PAID\",\n            \"amount\": 100,\n            \"currency\": \"USD\",\n            \"invoiceDate\": \"2021-01-01T00:00:00Z\",\n            \"deductionDate\": \"2021-01-01T00:00:00Z\",\n            \"settlementDate\": \"2021-01-03T00:00:00Z\",\n            \"dueDate\": \"2021-01-31T00:00:00Z\",\n            \"invoiceNumber\": \"INV-123\",\n            \"noteToSelf\": \"For the month of January\",\n            \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n            \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n            \"payerId\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"payer\": {\n                \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"name\": \"Acme Inc.\",\n                \"email\": \"customer@acme.com\",\n                \"acceptedTos\": true,\n                \"status\": \"verified\",\n                \"isCustomer\": true,\n                \"isPayor\": true,\n                \"isPayee\": false,\n                \"isNetworkPayor\": false,\n                \"isNetworkPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"customer@acme.com\",\n                        \"legalBusinessName\": \"Acme Inc.\",\n                        \"businessType\": \"llc\",\n                        \"phone\": {\n                            \"countryCode\": \"1\",\n                            \"number\": \"4155551234\"\n                        },\n                        \"address\": {\n                            \"addressLine1\": \"123 Main St\",\n                            \"addressLine2\": \"Unit 1\",\n                            \"city\": \"San Francisco\",\n                            \"stateOrProvince\": \"CA\",\n                            \"postalCode\": \"94105\",\n                            \"country\": \"US\"\n                        },\n                        \"taxIDProvided\": true,\n                        \"ownersProvided\": true\n                    }\n                },\n                \"paymentMethods\": [\n                    {\n                        \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                        \"type\": \"bankAccount\",\n                        \"accountName\": \"My Checking Account\",\n                        \"bankName\": \"Chase\",\n                        \"routingNumber\": \"12345678\",\n                        \"accountNumber\": \"99988767623\",\n                        \"accountType\": \"CHECKING\",\n                        \"status\": \"VERIFIED\",\n                        \"isDefaultSource\": true,\n                        \"isDefaultDestination\": true,\n                        \"supportedCurrencies\": [\n                            \"USD\"\n                        ],\n                        \"createdAt\": \"2021-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                    }\n                ],\n                \"counterpartyType\": [\n                    \"ENTITY\"\n                ]\n            },\n            \"paymentSource\": {\n                \"id\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n                \"type\": \"bankAccount\",\n                \"accountName\": \"My Checking Account\",\n                \"bankName\": \"Chase\",\n                \"routingNumber\": \"12345678\",\n                \"accountNumber\": \"99988767623\",\n                \"accountType\": \"CHECKING\",\n                \"status\": \"VERIFIED\",\n                \"isDefaultSource\": true,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentSourceId\": \"pm_4794d597-70dc-4fec-b6ec-c5988e759769\",\n            \"vendorId\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"vendor\": {\n                \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                \"foreignId\": \"MY-DB-ID-90909\",\n                \"name\": \"Big Box Store\",\n                \"email\": \"vendor@bigboxstore.com\",\n                \"acceptedTos\": false,\n                \"status\": \"unverified\",\n                \"isCustomer\": false,\n                \"isPayor\": false,\n                \"isPayee\": true,\n                \"isNetworkPayor\": false,\n                \"isNetworkPayee\": false,\n                \"accountType\": \"business\",\n                \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"profile\": {\n                    \"business\": {\n                        \"email\": \"vendor@bigboxstore.com\",\n                        \"legalBusinessName\": \"Big Box Store\",\n                        \"businessType\": \"publicCorporation\",\n                        \"taxIDProvided\": false,\n                        \"ownersProvided\": false\n                    }\n                },\n                \"paymentMethods\": [\n                    {\n                        \"id\": \"pm_7610541f-4619-4033-8620-cfccfb811293\",\n                        \"type\": \"bankAccount\",\n                        \"accountName\": \"Vendor Checking Account\",\n                        \"bankName\": \"Chase\",\n                        \"routingNumber\": \"66554433\",\n                        \"accountNumber\": \"55934059697648\",\n                        \"accountType\": \"CHECKING\",\n                        \"status\": \"NEW\",\n                        \"isDefaultSource\": true,\n                        \"isDefaultDestination\": true,\n                        \"supportedCurrencies\": [\n                            \"USD\"\n                        ],\n                        \"createdAt\": \"2021-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                    }\n                ],\n                \"counterpartyType\": [\n                    \"ENTITY\"\n                ]\n            },\n            \"paymentDestination\": {\n                \"id\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n                \"type\": \"check\",\n                \"payToTheOrderOf\": \"John Doe\",\n                \"addressLine1\": \"123 Main St\",\n                \"addressLine2\": \"Apt 1\",\n                \"city\": \"New York\",\n                \"stateOrProvince\": \"NY\",\n                \"postalCode\": \"10001\",\n                \"country\": \"US\",\n                \"isDefaultSource\": false,\n                \"isDefaultDestination\": true,\n                \"supportedCurrencies\": [\n                    \"USD\"\n                ],\n                \"createdAt\": \"2021-01-01T00:00:00Z\",\n                \"updatedAt\": \"2021-01-01T00:00:00Z\"\n            },\n            \"paymentDestinationId\": \"pm_5fde2f4a-facc-48ef-8f0d-6b7d087c7b18\",\n            \"paymentDestinationOptions\": {\n                \"type\": \"check\",\n                \"delivery\": \"MAIL\"\n            },\n            \"paymentDestinationConfirmed\": true,\n            \"hasDocuments\": true,\n            \"hasSourceEmail\": true,\n            \"comments\": [\n                {\n                    \"id\": \"ic_b3525b66-da94-4525-9f31-426bcf657128\",\n                    \"text\": \"This is an approval comment\",\n                    \"user\": {\n                        \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                        \"foreignId\": \"MY-DB-ID-12345\",\n                        \"email\": \"john.doe@acme.com\",\n                        \"name\": \"John Doe\",\n                        \"roles\": [\n                            \"admin\",\n                            \"approver\"\n                        ],\n                        \"createdAt\": \"2024-01-01T00:00:00Z\",\n                        \"updatedAt\": \"2024-01-01T00:00:00Z\"\n                    },\n                    \"associatedApprovalAction\": {\n                        \"userId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                        \"action\": \"APPROVE\"\n                    },\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"lineItems\": [\n                {\n                    \"id\": \"inli_26672f38-eb9a-48f1-a7a0-f1b855e38cd7\",\n                    \"amount\": 100,\n                    \"currency\": \"USD\",\n                    \"description\": \"Product A\",\n                    \"name\": \"Product A\",\n                    \"quantity\": 1,\n                    \"unitPrice\": 100,\n                    \"serviceStartDate\": \"2021-01-01T00:00:00Z\",\n                    \"serviceEndDate\": \"2021-01-31T00:00:00Z\",\n                    \"metadata\": {\n                        \"key1\": \"value1\",\n                        \"key2\": \"value2\"\n                    },\n                    \"glAccountId\": \"600394\",\n                    \"createdAt\": \"2021-01-01T00:00:00Z\",\n                    \"updatedAt\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvers\": [\n                {\n                    \"approvalPolicyId\": \"apvl_5ce50275-1789-42ea-bc60-bb7e6d03635c\",\n                    \"approvalSlotId\": \"inap_9bb311c9-7c15-4c9e-8148-63814e0abec6\",\n                    \"assignedUserId\": \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\",\n                    \"action\": \"APPROVE\",\n                    \"eligibleUserIds\": [\n                        \"user_e24fc81c-c5ee-47e8-af42-4fe29d895506\"\n                    ],\n                    \"eligibleRoles\": [\n                        \"admin\"\n                    ],\n                    \"date\": \"2021-01-01T00:00:00Z\"\n                }\n            ],\n            \"approvalPolicy\": [\n                {\n                    \"id\": \"apvl_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"trigger\": [\n                        {\n                            \"type\": \"amount\",\n                            \"amount\": 100,\n                            \"currency\": \"USD\"\n                        }\n                    ],\n                    \"rule\": {\n                        \"type\": \"approver\",\n                        \"numApprovers\": 2,\n                        \"identifierList\": {\n                            \"type\": \"rolesList\",\n                            \"value\": [\n                                \"Admin\",\n                                \"Controller\"\n                            ]\n                        }\n                    },\n                    \"upstreamPolicyId\": \"root\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\"\n                }\n            ],\n            \"metadata\": {\n                \"key1\": \"value1\",\n                \"key2\": \"value2\"\n            },\n            \"foreignId\": \"YOUR-DATABASE-ID\",\n            \"creatorUser\": {\n                \"id\": \"user_ec3aafc8-ea86-408a-a6c1-545497badbbb\",\n                \"foreignId\": \"MY-DB-ID-12345\",\n                \"email\": \"john.doe@acme.com\",\n                \"name\": \"John Doe\",\n                \"roles\": [\n                    \"admin\",\n                    \"approver\"\n                ],\n                \"createdAt\": \"2024-01-01T00:00:00Z\",\n                \"updatedAt\": \"2024-01-01T00:00:00Z\"\n            },\n            \"processedAt\": \"2021-01-01T00:00:00Z\",\n            \"createdAt\": \"2021-01-01T00:00:00Z\",\n            \"updatedAt\": \"2021-01-01T00:00:00Z\"\n        }\n    ]\n}",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            },
+            {
+              "_type": "endpoint",
+              "name": "Get Metrics",
+              "request": {
+                "description": "Get invoice metrics for an entity group with the given filters. Invoices will be grouped by currency. If none of excludePayables, excludeReceivables, payerId, vendorId, or invoiceId status filters are provided, excludeReceivables will be set to true.",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId/invoice-metrics?returnByDate=CREATION_DATE&excludeReceivables=true&createdDateStart=2021-01-01T00%3A00%3A00.000Z&createdDateEnd=2021-01-31T23%3A59%3A59.999Z&currency=USD&status=NEW",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId",
+                    "invoice-metrics"
+                  ],
+                  "query": [
+                    {
+                      "key": "returnByDate",
+                      "description": "Return invoice metrics grouped by date.",
+                      "value": "CREATION_DATE"
+                    },
+                    {
+                      "key": "excludeReceivables",
+                      "description": "Only return invoices that are not receivable by the entity. This will return only invoices that are payable by the entity.",
+                      "value": "true"
+                    },
+                    {
+                      "key": "createdDateStart",
+                      "description": "Start date for invoice created on date filter.",
+                      "value": "2021-01-01T00:00:00.000Z"
+                    },
+                    {
+                      "key": "createdDateEnd",
+                      "description": "End date for invoice created date filter.",
+                      "value": "2021-01-31T23:59:59.999Z"
+                    },
+                    {
+                      "key": "currency",
+                      "description": "Currency to filter on",
+                      "value": "USD"
+                    },
+                    {
+                      "key": "status",
+                      "description": "Invoice status to filter on",
+                      "value": "NEW"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": null,
+                      "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Get invoice metrics for an entity group with the given filters. Invoices will be grouped by currency. If none of excludePayables, excludeReceivables, payerId, vendorId, or invoiceId status filters are provided, excludeReceivables will be set to true.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entityGroup/:entityGroupId/invoice-metrics?returnByDate=CREATION_DATE&excludeReceivables=true&createdDateStart=2021-01-01T00%3A00%3A00.000Z&createdDateEnd=2021-01-31T23%3A59%3A59.999Z&currency=USD&status=NEW",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entityGroup",
+                        ":entityGroupId",
+                        "invoice-metrics"
+                      ],
+                      "query": [
+                        {
+                          "key": "returnByDate",
+                          "description": "Return invoice metrics grouped by date.",
+                          "value": "CREATION_DATE"
+                        },
+                        {
+                          "key": "excludeReceivables",
+                          "description": "Only return invoices that are not receivable by the entity. This will return only invoices that are payable by the entity.",
+                          "value": "true"
+                        },
+                        {
+                          "key": "createdDateStart",
+                          "description": "Start date for invoice created on date filter.",
+                          "value": "2021-01-01T00:00:00.000Z"
+                        },
+                        {
+                          "key": "createdDateEnd",
+                          "description": "End date for invoice created date filter.",
+                          "value": "2021-01-31T23:59:59.999Z"
+                        },
+                        {
+                          "key": "currency",
+                          "description": "Currency to filter on",
+                          "value": "USD"
+                        },
+                        {
+                          "key": "status",
+                          "description": "Invoice status to filter on",
+                          "value": "NEW"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "entityGroupId",
+                          "description": null,
+                          "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "auth": null,
+                    "body": null
+                  },
+                  "description": null,
+                  "body": "[\n    {\n        \"totalAmount\": 1000,\n        \"totalCount\": 10,\n        \"averageAmount\": 100,\n        \"currency\": \"USD\",\n        \"dates\": {\n            \"2021-01-01T00:00:00Z\": {\n                \"date\": \"2021-01-01T00:00:00Z\",\n                \"totalAmount\": 100,\n                \"totalCount\": 1,\n                \"averageAmount\": 100,\n                \"currency\": \"USD\"\n            },\n            \"2021-01-02T00:00:00Z\": {\n                \"date\": \"2021-01-02T00:00:00Z\",\n                \"totalAmount\": 200,\n                \"totalCount\": 2,\n                \"averageAmount\": 100,\n                \"currency\": \"USD\"\n            },\n            \"2021-01-03T00:00:00Z\": {\n                \"date\": \"2021-01-03T00:00:00Z\",\n                \"totalAmount\": 400,\n                \"totalCount\": 2,\n                \"averageAmount\": 200,\n                \"currency\": \"USD\"\n            }\n        }\n    }\n]",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get All Groups",
+          "request": {
+            "description": "Get all entity groups. If using a JWT, will return all groups the entity is part of. If using an API key, will return all groups for the organization.",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroups"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Get all entity groups. If using a JWT, will return all groups the entity is part of. If using an API key, will return all groups for the organization.",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroups"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "description": null,
+              "body": "{\n    \"count\": 3,\n    \"hasMore\": false,\n    \"data\": [\n        {\n            \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n            \"entities\": [\n                {\n                    \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"foreignId\": \"MY-DB-ID-12345\",\n                    \"name\": \"Acme Inc.\",\n                    \"email\": \"customer@acme.com\",\n                    \"acceptedTos\": true,\n                    \"status\": \"verified\",\n                    \"isCustomer\": true,\n                    \"isPayor\": true,\n                    \"isPayee\": false,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"customer@acme.com\",\n                            \"legalBusinessName\": \"Acme Inc.\",\n                            \"businessType\": \"llc\",\n                            \"phone\": {\n                                \"countryCode\": \"1\",\n                                \"number\": \"4155551234\"\n                            },\n                            \"address\": {\n                                \"addressLine1\": \"123 Main St\",\n                                \"addressLine2\": \"Unit 1\",\n                                \"city\": \"San Francisco\",\n                                \"stateOrProvince\": \"CA\",\n                                \"postalCode\": \"94105\",\n                                \"country\": \"US\"\n                            },\n                            \"taxIDProvided\": true,\n                            \"ownersProvided\": true\n                        }\n                    }\n                },\n                {\n                    \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                    \"foreignId\": \"MY-DB-ID-90909\",\n                    \"name\": \"Big Box Store\",\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"acceptedTos\": false,\n                    \"status\": \"unverified\",\n                    \"isCustomer\": false,\n                    \"isPayor\": false,\n                    \"isPayee\": true,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"vendor@bigboxstore.com\",\n                            \"legalBusinessName\": \"Big Box Store\",\n                            \"businessType\": \"publicCorporation\",\n                            \"taxIDProvided\": false,\n                            \"ownersProvided\": false\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Create Group",
+          "request": {
+            "description": "Create an entity group",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroup"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Create an entity group",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Get Group",
+          "request": {
+            "description": "Get an entity group",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroup/:entityGroupId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroup",
+                ":entityGroupId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityGroupId",
+                  "description": null,
+                  "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": null
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Get an entity group",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": null,
+                      "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "auth": null,
+                "body": null
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Update Group",
+          "request": {
+            "description": "Update an entity group",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroup/:entityGroupId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroup",
+                ":entityGroupId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityGroupId",
+                  "description": null,
+                  "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Update an entity group",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": null,
+                      "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "_postman_previewlanguage": "json"
+            }
+          ]
+        },
+        {
+          "_type": "endpoint",
+          "name": "Delete Group",
+          "request": {
+            "description": "Delete an entity group",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroup/:entityGroupId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroup",
+                ":entityGroupId"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityGroupId",
+                  "value": "",
+                  "description": null
+                }
+              ]
+            },
+            "header": [],
+            "method": "DELETE",
+            "auth": null,
+            "body": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_type": "container",
+      "description": null,
       "name": "Entity",
       "item": [
         {

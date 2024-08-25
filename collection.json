@@ -62,7 +62,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": "Entity Group ID",
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     }
                   ]
@@ -105,7 +105,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": "Entity Group ID",
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         }
                       ]
@@ -146,7 +146,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": "Entity Group ID",
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     }
                   ]
@@ -191,7 +191,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": "Entity Group ID",
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         }
                       ]
@@ -241,7 +241,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": "Entity Group ID",
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     },
                     {
@@ -284,7 +284,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": "Entity Group ID",
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         },
                         {
@@ -331,7 +331,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": "Entity Group ID",
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     },
                     {
@@ -382,7 +382,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": "Entity Group ID",
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         },
                         {
@@ -438,7 +438,7 @@
                     {
                       "key": "entityGroupId",
                       "value": "",
-                      "description": "Entity Group ID"
+                      "description": "Entity Group ID or Entity Group ForeignID"
                     },
                     {
                       "key": "foreignId",
@@ -453,6 +453,114 @@
                 "body": null
               },
               "response": []
+            },
+            {
+              "_type": "endpoint",
+              "name": "Generate JWT Token",
+              "request": {
+                "description": "Generate a JWT token for an entity group with the given options. This token can be used to authenticate to any entity in the entity group as the user in the Mercoa API and iFrame.",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId/user/:foreignId/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId",
+                    "user",
+                    ":foreignId",
+                    "token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": "Entity Group ID or Entity Group ForeignID",
+                      "value": "entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    },
+                    {
+                      "key": "foreignId",
+                      "description": "ID used to identify user in your system",
+                      "value": "MY-DB-ID-12345"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "name": "Success",
+                  "status": "OK",
+                  "code": 200,
+                  "originalRequest": {
+                    "description": "Generate a JWT token for an entity group with the given options. This token can be used to authenticate to any entity in the entity group as the user in the Mercoa API and iFrame.",
+                    "url": {
+                      "raw": "{{baseUrl}}/entityGroup/:entityGroupId/user/:foreignId/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entityGroup",
+                        ":entityGroupId",
+                        "user",
+                        ":foreignId",
+                        "token"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "key": "entityGroupId",
+                          "description": "Entity Group ID or Entity Group ForeignID",
+                          "value": "entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                        },
+                        {
+                          "key": "foreignId",
+                          "description": "ID used to identify user in your system",
+                          "value": "MY-DB-ID-12345"
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "type": "text",
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "auth": null,
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "description": null,
+                  "body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o\"",
+                  "_postman_previewlanguage": "json"
+                }
+              ]
             }
           ]
         },
@@ -501,7 +609,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": null,
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     }
                   ]
@@ -559,7 +667,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": null,
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         }
                       ]
@@ -631,7 +739,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": null,
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                     }
                   ]
@@ -699,7 +807,7 @@
                       "variable": [
                         {
                           "key": "entityGroupId",
-                          "description": null,
+                          "description": "Entity Group ID or Entity Group ForeignID",
                           "value": "entg_8545a84e-a45f-41bf-bdf1-33b42a55812c"
                         }
                       ]
@@ -780,7 +888,7 @@
                 "body": null
               },
               "description": null,
-              "body": "{\n    \"count\": 3,\n    \"hasMore\": false,\n    \"data\": [\n        {\n            \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n            \"entities\": [\n                {\n                    \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"foreignId\": \"MY-DB-ID-12345\",\n                    \"name\": \"Acme Inc.\",\n                    \"email\": \"customer@acme.com\",\n                    \"acceptedTos\": true,\n                    \"status\": \"verified\",\n                    \"isCustomer\": true,\n                    \"isPayor\": true,\n                    \"isPayee\": false,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"customer@acme.com\",\n                            \"legalBusinessName\": \"Acme Inc.\",\n                            \"businessType\": \"llc\",\n                            \"phone\": {\n                                \"countryCode\": \"1\",\n                                \"number\": \"4155551234\"\n                            },\n                            \"address\": {\n                                \"addressLine1\": \"123 Main St\",\n                                \"addressLine2\": \"Unit 1\",\n                                \"city\": \"San Francisco\",\n                                \"stateOrProvince\": \"CA\",\n                                \"postalCode\": \"94105\",\n                                \"country\": \"US\"\n                            },\n                            \"taxIDProvided\": true,\n                            \"ownersProvided\": true\n                        }\n                    }\n                },\n                {\n                    \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                    \"foreignId\": \"MY-DB-ID-90909\",\n                    \"name\": \"Big Box Store\",\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"acceptedTos\": false,\n                    \"status\": \"unverified\",\n                    \"isCustomer\": false,\n                    \"isPayor\": false,\n                    \"isPayee\": true,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"vendor@bigboxstore.com\",\n                            \"legalBusinessName\": \"Big Box Store\",\n                            \"businessType\": \"publicCorporation\",\n                            \"taxIDProvided\": false,\n                            \"ownersProvided\": false\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
+              "body": "{\n    \"count\": 3,\n    \"hasMore\": false,\n    \"data\": [\n        {\n            \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n            \"foreignId\": \"your-group-id\",\n            \"name\": \"AcmeConglomerate\",\n            \"emailToName\": \"acmegroup\",\n            \"entities\": [\n                {\n                    \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n                    \"foreignId\": \"MY-DB-ID-12345\",\n                    \"name\": \"Acme Inc.\",\n                    \"email\": \"customer@acme.com\",\n                    \"acceptedTos\": true,\n                    \"status\": \"verified\",\n                    \"isCustomer\": true,\n                    \"isPayor\": true,\n                    \"isPayee\": false,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"customer@acme.com\",\n                            \"legalBusinessName\": \"Acme Inc.\",\n                            \"businessType\": \"llc\",\n                            \"phone\": {\n                                \"countryCode\": \"1\",\n                                \"number\": \"4155551234\"\n                            },\n                            \"address\": {\n                                \"addressLine1\": \"123 Main St\",\n                                \"addressLine2\": \"Unit 1\",\n                                \"city\": \"San Francisco\",\n                                \"stateOrProvince\": \"CA\",\n                                \"postalCode\": \"94105\",\n                                \"country\": \"US\"\n                            },\n                            \"taxIDProvided\": true,\n                            \"ownersProvided\": true\n                        }\n                    }\n                },\n                {\n                    \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n                    \"foreignId\": \"MY-DB-ID-90909\",\n                    \"name\": \"Big Box Store\",\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"acceptedTos\": false,\n                    \"status\": \"unverified\",\n                    \"isCustomer\": false,\n                    \"isPayor\": false,\n                    \"isPayee\": true,\n                    \"isNetworkPayor\": false,\n                    \"isNetworkPayee\": false,\n                    \"accountType\": \"business\",\n                    \"updatedAt\": \"2024-01-02T00:00:00Z\",\n                    \"createdAt\": \"2024-01-01T00:00:00Z\",\n                    \"profile\": {\n                        \"business\": {\n                            \"email\": \"vendor@bigboxstore.com\",\n                            \"legalBusinessName\": \"Big Box Store\",\n                            \"businessType\": \"publicCorporation\",\n                            \"taxIDProvided\": false,\n                            \"ownersProvided\": false\n                        }\n                    }\n                }\n            ]\n        }\n    ]\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -812,7 +920,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+              "raw": "{\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -849,7 +957,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+                  "raw": "{\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -858,7 +966,7 @@
                 }
               },
               "description": null,
-              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -881,7 +989,7 @@
               "variable": [
                 {
                   "key": "entityGroupId",
-                  "description": null,
+                  "description": "Entity Group ID or Entity Group ForeignID",
                   "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
                 }
               ]
@@ -917,7 +1025,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": null,
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
                     }
                   ]
@@ -934,7 +1042,7 @@
                 "body": null
               },
               "description": null,
-              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -957,7 +1065,7 @@
               "variable": [
                 {
                   "key": "entityGroupId",
-                  "description": null,
+                  "description": "Entity Group ID or Entity Group ForeignID",
                   "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
                 }
               ]
@@ -973,7 +1081,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+              "raw": "{\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1001,7 +1109,7 @@
                   "variable": [
                     {
                       "key": "entityGroupId",
-                      "description": null,
+                      "description": "Entity Group ID or Entity Group ForeignID",
                       "value": "entg_a3582b70-fd04-4888-9185-a640ae9048be"
                     }
                   ]
@@ -1017,7 +1125,7 @@
                 "auth": null,
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
+                  "raw": "{\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entityIds\": [\n        \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n        \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\"\n    ]\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -1026,7 +1134,7 @@
                 }
               },
               "description": null,
-              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
+              "body": "{\n    \"id\": \"entg_a3582b70-fd04-4888-9185-a640ae9048be\",\n    \"foreignId\": \"your-group-id\",\n    \"name\": \"AcmeConglomerate\",\n    \"emailToName\": \"acmegroup\",\n    \"entities\": [\n        {\n            \"id\": \"ent_8545a84e-a45f-41bf-bdf1-33b42a55812c\",\n            \"foreignId\": \"MY-DB-ID-12345\",\n            \"name\": \"Acme Inc.\",\n            \"email\": \"customer@acme.com\",\n            \"acceptedTos\": true,\n            \"status\": \"verified\",\n            \"isCustomer\": true,\n            \"isPayor\": true,\n            \"isPayee\": false,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"customer@acme.com\",\n                    \"legalBusinessName\": \"Acme Inc.\",\n                    \"businessType\": \"llc\",\n                    \"phone\": {\n                        \"countryCode\": \"1\",\n                        \"number\": \"4155551234\"\n                    },\n                    \"address\": {\n                        \"addressLine1\": \"123 Main St\",\n                        \"addressLine2\": \"Unit 1\",\n                        \"city\": \"San Francisco\",\n                        \"stateOrProvince\": \"CA\",\n                        \"postalCode\": \"94105\",\n                        \"country\": \"US\"\n                    },\n                    \"taxIDProvided\": true,\n                    \"ownersProvided\": true\n                }\n            }\n        },\n        {\n            \"id\": \"ent_21661ac1-a2a8-4465-a6c0-64474ba8181d\",\n            \"foreignId\": \"MY-DB-ID-90909\",\n            \"name\": \"Big Box Store\",\n            \"email\": \"vendor@bigboxstore.com\",\n            \"acceptedTos\": false,\n            \"status\": \"unverified\",\n            \"isCustomer\": false,\n            \"isPayor\": false,\n            \"isPayee\": true,\n            \"isNetworkPayor\": false,\n            \"isNetworkPayee\": false,\n            \"accountType\": \"business\",\n            \"updatedAt\": \"2024-01-02T00:00:00Z\",\n            \"createdAt\": \"2024-01-01T00:00:00Z\",\n            \"profile\": {\n                \"business\": {\n                    \"email\": \"vendor@bigboxstore.com\",\n                    \"legalBusinessName\": \"Big Box Store\",\n                    \"businessType\": \"publicCorporation\",\n                    \"taxIDProvided\": false,\n                    \"ownersProvided\": false\n                }\n            }\n        }\n    ]\n}",
               "_postman_previewlanguage": "json"
             }
           ]
@@ -1050,7 +1158,7 @@
                 {
                   "key": "entityGroupId",
                   "value": "",
-                  "description": null
+                  "description": "Entity Group ID or Entity Group ForeignID"
                 }
               ]
             },
@@ -1060,6 +1168,100 @@
             "body": null
           },
           "response": []
+        },
+        {
+          "_type": "endpoint",
+          "name": "Generate JWT Token",
+          "request": {
+            "description": "Generate a JWT token for an entity group with the given options. This token can be used to authenticate to any entity in the entity group in the Mercoa API and iFrame.\n\n<Warning>We recommend using [this endpoint](/api-reference/entity-group/user/get-token). This will enable features such as approvals and comments.</Warning>",
+            "url": {
+              "raw": "{{baseUrl}}/entityGroup/:entityGroupId/token",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "entityGroup",
+                ":entityGroupId",
+                "token"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "entityGroupId",
+                  "description": "Entity Group ID or Entity Group ForeignID",
+                  "value": "entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                }
+              ]
+            },
+            "header": [
+              {
+                "type": "text",
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Success",
+              "status": "OK",
+              "code": 200,
+              "originalRequest": {
+                "description": "Generate a JWT token for an entity group with the given options. This token can be used to authenticate to any entity in the entity group in the Mercoa API and iFrame.\n\n<Warning>We recommend using [this endpoint](/api-reference/entity-group/user/get-token). This will enable features such as approvals and comments.</Warning>",
+                "url": {
+                  "raw": "{{baseUrl}}/entityGroup/:entityGroupId/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entityGroup",
+                    ":entityGroupId",
+                    "token"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "key": "entityGroupId",
+                      "description": "Entity Group ID or Entity Group ForeignID",
+                      "value": "entg_a0f6ea94-0761-4a5e-a416-3c453cb7eced"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "type": "text",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"expiresIn\": \"1h\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "description": null,
+              "body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDU2Nzg5LCJuYW1lIjoiSm9zZXBoIn0.OpOSSw7e485LOP5PrzScxHb7SR6sAOMRckfFwi4rp7o\"",
+              "_postman_previewlanguage": "json"
+            }
+          ]
         }
       ]
     },
@@ -5416,7 +5618,7 @@
             },
             {
               "_type": "endpoint",
-              "name": "Delete all metadata associated with a specific key",
+              "name": "Delete",
               "request": {
                 "description": "Delete all metadata associated with a specific key",
                 "url": {
@@ -10626,7 +10828,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\",\n        \"roundedCorners\": 0\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"termsOfService\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"validationRules\": {\n                \"type\": \"regex\",\n                \"regex\": \"example\",\n                \"errorMessage\": \"example\"\n            },\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
+              "raw": "{\n    \"name\": \"example\",\n    \"logo\": \"example\",\n    \"websiteUrl\": \"example\",\n    \"supportEmail\": \"example\",\n    \"paymentMethods\": {\n        \"payerPayments\": [\n            {\n                \"type\": \"custom\",\n                \"name\": \"example\",\n                \"active\": true\n            }\n        ],\n        \"backupDisbursements\": [\n            null\n        ],\n        \"vendorDisbursements\": [\n            null\n        ]\n    },\n    \"emailProvider\": {\n        \"sender\": {\n            \"provider\": \"none\",\n            \"fromEmail\": \"example\",\n            \"fromName\": \"example\",\n            \"apiKey\": \"example\"\n        },\n        \"inboxDomain\": \"example\"\n    },\n    \"externalAccountingSystemProvider\": {\n        \"type\": \"none\",\n        \"apiKey\": \"example\"\n    },\n    \"colorScheme\": {\n        \"primaryColor\": \"example\",\n        \"secondaryColor\": \"example\",\n        \"logoBackgroundColor\": \"example\",\n        \"roundedCorners\": 0\n    },\n    \"payeeOnboardingOptions\": {\n        \"enableBusiness\": true,\n        \"enableIndividual\": true,\n        \"paymentMethod\": true,\n        \"business\": {\n            \"type\": {\n                \"show\": true,\n                \"edit\": true,\n                \"required\": true\n            }\n        },\n        \"individual\": {}\n    },\n    \"metadataSchema\": [\n        {\n            \"key\": \"example\",\n            \"displayName\": \"example\",\n            \"description\": \"example\",\n            \"lineItem\": true,\n            \"type\": \"STRING\",\n            \"allowMultiple\": true,\n            \"validationRules\": {\n                \"type\": \"regex\",\n                \"regex\": \"example\",\n                \"errorMessage\": \"example\"\n            },\n            \"showConditions\": {\n                \"hasOptions\": true,\n                \"hasDocument\": true,\n                \"hasNoLineItems\": true,\n                \"paymentSourceTypes\": [\n                    null\n                ],\n                \"paymentSourceCustomSchemaIds\": [\n                    \"example\"\n                ],\n                \"paymentDestinationTypes\": [\n                    null\n                ],\n                \"paymentDestinationCustomSchemaIds\": [\n                    \"example\"\n                ]\n            }\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
